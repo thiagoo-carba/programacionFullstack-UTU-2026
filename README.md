@@ -1,0 +1,1 @@
+Elegí organizar el repositorio por meses para mantener un orden cronológico de los trabajos del año. Así es más fácil encontrar las actividades según cuándo se hicieron y ver el progreso a lo largo del curso.
