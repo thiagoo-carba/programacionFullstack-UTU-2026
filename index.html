@@ -185,6 +185,193 @@
       <span class="section-title">Fundamentos HTML &amp; CSS</span>
     </div>
     <div class="cards">
+      <a href="<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programación Fullstack · UTU 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-tertiary: #aeaeb2;
+      --accent: #0071e3;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.10),0 2px 8px rgba(0,0,0,0.06);
+      --radius: 18px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(245,245,247,0.72);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 980px; margin: 0 auto; padding: 0 24px;
+      height: 48px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 13px; font-weight: 500; color: var(--text-primary); text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 12px; color: var(--text-secondary); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .hero {
+      max-width: 980px; margin: 0 auto; padding: 96px 24px 64px;
+      text-align: center; animation: fadeUp .7s ease both;
+    }
+    .hero-eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px); font-weight: 600;
+      letter-spacing: -0.04em; line-height: 1.05;
+    }
+    .hero p {
+      margin-top: 16px; font-size: 19px; font-weight: 300;
+      color: var(--text-secondary); letter-spacing: -0.01em; line-height: 1.5;
+    }
+
+    .stats-bar {
+      max-width: 980px; margin: 0 auto 56px; padding: 0 24px;
+      display: flex; justify-content: center;
+      animation: fadeUp .7s .1s ease both;
+    }
+    .stat {
+      flex: 1; max-width: 200px; text-align: center; padding: 24px 0;
+      border-right: 1px solid var(--border);
+    }
+    .stat:first-child { border-left: 1px solid var(--border); }
+    .stat-num { font-size: 36px; font-weight: 600; letter-spacing: -0.03em; }
+    .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+    .section {
+      max-width: 980px; margin: 0 auto; padding: 0 24px 72px;
+    }
+    .section-header {
+      display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px;
+    }
+    .level-pill {
+      font-size: 11px; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+    }
+    .pill-1 { background: rgba(0,113,227,.1); color: #0071e3; }
+    .pill-2 { background: rgba(52,199,89,.1); color: #1d8348; }
+    .pill-3 { background: rgba(255,149,0,.1); color: #b8530a; }
+    .section-title { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+
+    .card {
+      display: block; background: var(--surface); border-radius: var(--radius);
+      padding: 26px 28px; text-decoration: none; color: var(--text-primary);
+      box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+      position: relative; overflow: hidden;
+    }
+    .card::after {
+      content: '→'; position: absolute; bottom: 26px; right: 28px;
+      font-size: 16px; color: var(--text-tertiary);
+      transition: transform .2s ease, color .2s ease;
+    }
+    .card:hover { transform: translateY(-4px) scale(1.005); box-shadow: var(--shadow-lg); }
+    .card:hover::after { transform: translateX(4px); color: var(--accent); }
+
+    .nivel-1 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #0071e3; border-radius: 18px 18px 0 0; }
+    .nivel-2 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #34c759; border-radius: 18px 18px 0 0; }
+    .nivel-3 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #ff9500; border-radius: 18px 18px 0 0; }
+
+    .card-num { font-size: 11px; font-weight: 500; letter-spacing: .08em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 10px; }
+    .card-title { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; padding-right: 24px; }
+
+    .divider { max-width: 980px; margin: 0 auto 56px; padding: 0 24px; }
+    .divider hr { border: none; border-top: 1px solid var(--border); }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 24px; }
+    .footer-inner {
+      max-width: 980px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    }
+    footer p { font-size: 12px; color: var(--text-tertiary); }
+    footer a { font-size: 12px; color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .section:nth-child(1) { animation: fadeUp .5s .15s ease both; }
+    .section:nth-child(2) { animation: fadeUp .5s .25s ease both; }
+    .section:nth-child(3) { animation: fadeUp .5s .35s ease both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 16px; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:first-child { border-left: none; border-top: 1px solid var(--border); }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">UTU 2026</a>
+      <ul class="nav-links">
+        <li><a href="#nivel1">Nivel 1</a></li>
+        <li><a href="#nivel2">Nivel 2</a></li>
+        <li><a href="#nivel3">Nivel 3</a></li>
+        <li><a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-eyebrow">Programación Fullstack</span>
+    <h1>Ejercicios del curso</h1>
+    <p>Repositorio de trabajos realizados durante el año.<br>UTU · 2026</p>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Niveles</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Ejercicios</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2026</div>
+      <div class="stat-label">Año</div>
+    </div>
+  </div>
+
+  <div class="section nivel-1" id="nivel1">
+    <div class="section-header">
+      <span class="level-pill pill-1">Nivel 1</span>
+      <span class="section-title">Fundamentos HTML &amp; CSS</span>
+    </div>
+    <div class="cards">
       <a href="/Ejercicio1/index.html" class="card">
         <div class="card-num">Ejercicio 01</div>
         <div class="card-title">Estructura HTML</div>
@@ -212,6 +399,339 @@
     </div>
     <div class="cards">
       <a href="/Ejercicio4/index.html" class="card">
+        <div class="card-num">Ejercicio 04</div>
+        <div class="card-title">Variables y funciones</div>
+        <div class="card-desc">Fundamentos de JS, tipos de datos y scope.</div>
+      </a>
+      <a href="/Ejercicio5/index.html" class="card">
+        <div class="card-num">Ejercicio 05</div>
+        <div class="card-title">DOM y eventos</div>
+        <div class="card-desc">Manipulación del DOM y manejo de eventos.</div>
+      </a>
+      <a href="/Ejercicio6/index.html" class="card">
+        <div class="card-num">Ejercicio 06</div>
+        <div class="card-title">Arrays y objetos</div>
+        <div class="card-desc">Estructuras de datos y métodos de iteración.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"><hr /></div>
+
+  <div class="section nivel-3" id="nivel3">
+    <div class="section-header">
+      <span class="level-pill pill-3">Nivel 3</span>
+      <span class="section-title">Fullstack &amp; Proyectos</span>
+    </div>
+    <div class="cards">
+      <a href="/Ejercicio7/index.html" class="card">
+        <div class="card-num">Ejercicio 07</div>
+        <div class="card-title">Fetch y APIs</div>
+        <div class="card-desc">Consumo de APIs externas con fetch y async/await.</div>
+      </a>
+      <a href="/Ejercicio8/index.html" class="card">
+        <div class="card-num">Ejercicio 08</div>
+        <div class="card-title">Proyecto integrador</div>
+        <div class="card-desc">Aplicación completa combinando todo lo aprendido.</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 thiagoo-carba · UTU</p>
+      <a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank">Ver en GitHub ↗</a>
+    </div>
+  </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programación Fullstack · UTU 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-tertiary: #aeaeb2;
+      --accent: #0071e3;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.10),0 2px 8px rgba(0,0,0,0.06);
+      --radius: 18px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(245,245,247,0.72);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 980px; margin: 0 auto; padding: 0 24px;
+      height: 48px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 13px; font-weight: 500; color: var(--text-primary); text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 12px; color: var(--text-secondary); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .hero {
+      max-width: 980px; margin: 0 auto; padding: 96px 24px 64px;
+      text-align: center; animation: fadeUp .7s ease both;
+    }
+    .hero-eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px); font-weight: 600;
+      letter-spacing: -0.04em; line-height: 1.05;
+    }
+    .hero p {
+      margin-top: 16px; font-size: 19px; font-weight: 300;
+      color: var(--text-secondary); letter-spacing: -0.01em; line-height: 1.5;
+    }
+
+    .stats-bar {
+      max-width: 980px; margin: 0 auto 56px; padding: 0 24px;
+      display: flex; justify-content: center;
+      animation: fadeUp .7s .1s ease both;
+    }
+    .stat {
+      flex: 1; max-width: 200px; text-align: center; padding: 24px 0;
+      border-right: 1px solid var(--border);
+    }
+    .stat:first-child { border-left: 1px solid var(--border); }
+    .stat-num { font-size: 36px; font-weight: 600; letter-spacing: -0.03em; }
+    .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+    .section {
+      max-width: 980px; margin: 0 auto; padding: 0 24px 72px;
+    }
+    .section-header {
+      display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px;
+    }
+    .level-pill {
+      font-size: 11px; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+    }
+    .pill-1 { background: rgba(0,113,227,.1); color: #0071e3; }
+    .pill-2 { background: rgba(52,199,89,.1); color: #1d8348; }
+    .pill-3 { background: rgba(255,149,0,.1); color: #b8530a; }
+    .section-title { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+
+    .card {
+      display: block; background: var(--surface); border-radius: var(--radius);
+      padding: 26px 28px; text-decoration: none; color: var(--text-primary);
+      box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+      position: relative; overflow: hidden;
+    }
+    .card::after {
+      content: '→'; position: absolute; bottom: 26px; right: 28px;
+      font-size: 16px; color: var(--text-tertiary);
+      transition: transform .2s ease, color .2s ease;
+    }
+    .card:hover { transform: translateY(-4px) scale(1.005); box-shadow: var(--shadow-lg); }
+    .card:hover::after { transform: translateX(4px); color: var(--accent); }
+
+    .nivel-1 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #0071e3; border-radius: 18px 18px 0 0; }
+    .nivel-2 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #34c759; border-radius: 18px 18px 0 0; }
+    .nivel-3 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #ff9500; border-radius: 18px 18px 0 0; }
+
+    .card-num { font-size: 11px; font-weight: 500; letter-spacing: .08em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 10px; }
+    .card-title { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; padding-right: 24px; }
+
+    .divider { max-width: 980px; margin: 0 auto 56px; padding: 0 24px; }
+    .divider hr { border: none; border-top: 1px solid var(--border); }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 24px; }
+    .footer-inner {
+      max-width: 980px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    }
+    footer p { font-size: 12px; color: var(--text-tertiary); }
+    footer a { font-size: 12px; color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .section:nth-child(1) { animation: fadeUp .5s .15s ease both; }
+    .section:nth-child(2) { animation: fadeUp .5s .25s ease both; }
+    .section:nth-child(3) { animation: fadeUp .5s .35s ease both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 16px; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:first-child { border-left: none; border-top: 1px solid var(--border); }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">UTU 2026</a>
+      <ul class="nav-links">
+        <li><a href="#nivel1">Nivel 1</a></li>
+        <li><a href="#nivel2">Nivel 2</a></li>
+        <li><a href="#nivel3">Nivel 3</a></li>
+        <li><a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-eyebrow">Programación Fullstack</span>
+    <h1>Ejercicios del curso</h1>
+    <p>Repositorio de trabajos realizados durante el año.<br>UTU · 2026</p>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Niveles</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Ejercicios</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2026</div>
+      <div class="stat-label">Año</div>
+    </div>
+  </div>
+
+  <div class="section nivel-1" id="nivel1">
+    <div class="section-header">
+      <span class="level-pill pill-1">Nivel 1</span>
+      <span class="section-title">Fundamentos HTML &amp; CSS</span>
+    </div>
+    <div class="cards">
+      <a href="/Ejercicio1/index.html" class="card">
+        <div class="card-num">Ejercicio 01</div>
+        <div class="card-title">Estructura HTML</div>
+        <div class="card-desc">Primeras páginas, etiquetas y semántica básica.</div>
+      </a>
+      <a href="/Ejercicio2/index.html" class="card">
+        <div class="card-num">Ejercicio 02</div>
+        <div class="card-title">Estilos CSS</div>
+        <div class="card-desc">Selectores, propiedades y maquetado con CSS.</div>
+      </a>
+      <a href="/Ejercicio3/index.html" class="card">
+        <div class="card-num">Ejercicio 03</div>
+        <div class="card-title">Formularios y listas</div>
+        <div class="card-desc">Inputs, validaciones y estructuras de lista.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"><hr /></div>
+
+  <div class="section nivel-2" id="nivel2">
+    <div class="section-header">
+      <span class="level-pill pill-2">Nivel 2</span>
+      <span class="section-title">JavaScript &amp; Lógica</span>
+    </div>
+    <div class="cards">
+      <a href="/Ejercicio4/index.html" class="card">
+        <div class="card-num">Ejercicio 04</div>
+        <div class="card-title">Variables y funciones</div>
+        <div class="card-desc">Fundamentos de JS, tipos de datos y scope.</div>
+      </a>
+      <a href="/Ejercicio5/index.html" class="card">
+        <div class="card-num">Ejercicio 05</div>
+        <div class="card-title">DOM y eventos</div>
+        <div class="card-desc">Manipulación del DOM y manejo de eventos.</div>
+      </a>
+      <a href="/Ejercicio6/index.html" class="card">
+        <div class="card-num">Ejercicio 06</div>
+        <div class="card-title">Arrays y objetos</div>
+        <div class="card-desc">Estructuras de datos y métodos de iteración.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"><hr /></div>
+
+  <div class="section nivel-3" id="nivel3">
+    <div class="section-header">
+      <span class="level-pill pill-3">Nivel 3</span>
+      <span class="section-title">Fullstack &amp; Proyectos</span>
+    </div>
+    <div class="cards">
+      <a href="/Ejercicio7/index.html" class="card">
+        <div class="card-num">Ejercicio 07</div>
+        <div class="card-title">Fetch y APIs</div>
+        <div class="card-desc">Consumo de APIs externas con fetch y async/await.</div>
+      </a>
+      <a href="/Ejercicio8/index.html" class="card">
+        <div class="card-num">Ejercicio 08</div>
+        <div class="card-title">Proyecto integrador</div>
+        <div class="card-desc">Aplicación completa combinando todo lo aprendido.</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 thiagoo-carba · UTU</p>
+      <a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank">Ver en GitHub ↗</a>
+    </div>
+  </footer>
+
+</body>
+</html>"/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_1/index.html" class="card">
+        <div class="card-num">Ejercicio 01</div>
+        <div class="card-title">Estructura HTML</div>
+        <div class="card-desc">Primeras páginas, etiquetas y semántica básica.</div>
+      </a>
+      <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_2/index.html" class="card">
+        <div class="card-num">Ejercicio 02</div>
+        <div class="card-title">Estilos CSS</div>
+        <div class="card-desc">Selectores, propiedades y maquetado con CSS.</div>
+      </a>
+      <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/index.html" class="card">
+        <div class="card-num">Ejercicio 03</div>
+        <div class="card-title">Formularios y listas</div>
+        <div class="card-desc">Inputs, validaciones y estructuras de lista.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"><hr /></div>
+
+  <div class="section nivel-2" id="nivel2">
+    <div class="section-header">
+      <span class="level-pill pill-2">Nivel 2</span>
+      <span class="section-title">JavaScript &amp; Lógica</span>
+    </div>
+    <div class="cards">
+      <a href="/programacionFullstack-UTU-2026/2-Abril/Ejercicio_1/index.html" class="card">
         <div class="card-num">Ejercicio 04</div>
         <div class="card-title">Variables y funciones</div>
         <div class="card-desc">Fundamentos de JS, tipos de datos y scope.</div>
