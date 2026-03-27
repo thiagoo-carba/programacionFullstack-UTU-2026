@@ -27,6 +27,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
+
     nav {
       position: sticky; top: 0; z-index: 100;
       backdrop-filter: saturate(180%) blur(20px);
@@ -74,12 +75,8 @@
     .stat-num { font-size: 36px; font-weight: 600; letter-spacing: -0.03em; }
     .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
 
-    .section {
-      max-width: 980px; margin: 0 auto; padding: 0 24px 72px;
-    }
-    .section-header {
-      display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px;
-    }
+    .section { max-width: 980px; margin: 0 auto; padding: 0 24px 72px; animation: fadeUp .5s .15s ease both; }
+    .section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px; }
     .level-pill {
       font-size: 11px; font-weight: 600; letter-spacing: .06em;
       text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
@@ -89,6 +86,7 @@
 
     .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
 
+    /* Card base */
     .card {
       display: block; background: var(--surface); border-radius: var(--radius);
       padding: 26px 28px; text-decoration: none; color: var(--text-primary);
@@ -103,12 +101,87 @@
     }
     .card:hover { transform: translateY(-4px) scale(1.005); box-shadow: var(--shadow-lg); }
     .card:hover::after { transform: translateX(4px); color: var(--accent); }
-
-    .nivel-1 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #0071e3; border-radius: 18px 18px 0 0; }
-
+    .nivel-1 .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: #0071e3; border-radius: 18px 18px 0 0;
+    }
     .card-num { font-size: 11px; font-weight: 500; letter-spacing: .08em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 10px; }
     .card-title { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
     .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; padding-right: 24px; }
+
+    /* Card clickable (no href) — for the toggle card */
+    .card-toggle {
+      cursor: pointer; user-select: none;
+    }
+    .card-toggle::after {
+      content: '↓';
+      transition: transform .3s ease, color .2s ease;
+    }
+    .card-toggle.open::after {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+    .card-toggle.open {
+      border-color: rgba(0,113,227,.25);
+      box-shadow: 0 0 0 3px rgba(0,113,227,.06);
+    }
+
+    /* Submenú expandible */
+    .submenu-wrapper {
+      grid-column: 1 / -1;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .45s cubic-bezier(.4,0,.2,1), opacity .3s ease, margin .3s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+    .submenu-wrapper.open {
+      max-height: 800px;
+      opacity: 1;
+      margin-top: 4px;
+    }
+    .submenu {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .submenu-title {
+      font-size: 11px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--text-tertiary);
+      margin-bottom: 14px; padding-left: 4px;
+    }
+    .submenu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 8px;
+    }
+    .subcard {
+      display: block; text-decoration: none;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px;
+      color: var(--text-primary);
+      transition: background .2s, transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+      position: relative;
+    }
+    .subcard:hover {
+      background: var(--surface);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .subcard-name {
+      font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
+    }
+    .subcard-label {
+      font-size: 11px; color: var(--text-tertiary); margin-top: 3px;
+    }
+    .subcard-arrow {
+      position: absolute; top: 14px; right: 14px;
+      font-size: 12px; color: var(--text-tertiary);
+      transition: transform .2s, color .2s;
+    }
+    .subcard:hover .subcard-arrow { transform: translateX(2px); color: var(--accent); }
 
     footer { border-top: 1px solid var(--border); padding: 28px 24px; margin-top: 24px; }
     .footer-inner {
@@ -118,8 +191,6 @@
     footer p { font-size: 12px; color: var(--text-tertiary); }
     footer a { font-size: 12px; color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-
-    .section { animation: fadeUp .5s .15s ease both; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -132,6 +203,7 @@
       .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
       .stat:first-child { border-left: none; border-top: 1px solid var(--border); }
       .nav-links { display: none; }
+      .submenu-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
     }
   </style>
 </head>
@@ -187,11 +259,76 @@
         <div class="card-desc">Selectores, propiedades y maquetado con CSS.</div>
       </a>
 
-      <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/Bugatti/Index.html" class="card">
+      <!-- Ejercicio 03 — toggle -->
+      <div class="card card-toggle" id="card-ej3" onclick="toggleEj3()">
         <div class="card-num">Ejercicio 03</div>
-        <div class="card-title">Bugatti</div>
-        <div class="card-desc">Página de proyecto con diseño y estructura avanzada.</div>
-      </a>
+        <div class="card-title">Clones de sitios</div>
+        <div class="card-desc">Recreaciones de páginas reales con HTML &amp; CSS.</div>
+      </div>
+
+      <!-- Submenú de Ejercicio 03 -->
+      <div class="submenu-wrapper" id="submenu-ej3">
+        <div class="submenu">
+          <div class="submenu-title">Elegí un sitio</div>
+          <div class="submenu-grid">
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/Bugatti/Index.html" class="subcard">
+              <div class="subcard-name">Bugatti</div>
+              <div class="subcard-label">Automotriz</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/Corta/index.html" class="subcard">
+              <div class="subcard-name">Corta</div>
+              <div class="subcard-label">Página web</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/HBOMax/index.html" class="subcard">
+              <div class="subcard-name">HBO Max</div>
+              <div class="subcard-label">Streaming</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/MercadoLibre/index.html" class="subcard">
+              <div class="subcard-name">MercadoLibre</div>
+              <div class="subcard-label">E-commerce</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/Microsoft/index.html" class="subcard">
+              <div class="subcard-name">Microsoft</div>
+              <div class="subcard-label">Tecnología</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/Northrop_Grumman/index.html" class="subcard">
+              <div class="subcard-name">Northrop Grumman</div>
+              <div class="subcard-label">Defensa</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/Tesla/index.html" class="subcard">
+              <div class="subcard-name">Tesla</div>
+              <div class="subcard-label">Automotriz</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/Wikipedia/index.html" class="subcard">
+              <div class="subcard-name">Wikipedia</div>
+              <div class="subcard-label">Enciclopedia</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+            <a href="/programacionFullstack-UTU-2026/1-Marzo/Ejercicio_3/You_Tube/index.html" class="subcard">
+              <div class="subcard-name">YouTube</div>
+              <div class="subcard-label">Video</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -202,6 +339,15 @@
       <a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank">Ver en GitHub ↗</a>
     </div>
   </footer>
+
+  <script>
+    function toggleEj3() {
+      const card = document.getElementById('card-ej3');
+      const menu = document.getElementById('submenu-ej3');
+      card.classList.toggle('open');
+      menu.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
