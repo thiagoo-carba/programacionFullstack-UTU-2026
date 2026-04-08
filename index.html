@@ -1,14 +1,659 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi página</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programación Fullstack · UTU 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --surface: rgba(255,255,255,0.05);
+      --surface-hover: rgba(255,255,255,0.09);
+      --glass: rgba(255,255,255,0.07);
+      --glass-border: rgba(255,255,255,0.12);
+      --glass-border-hover: rgba(255,255,255,0.22);
+      --text-primary: #f5f5f7;
+      --text-secondary: rgba(255,255,255,0.55);
+      --text-tertiary: rgba(255,255,255,0.28);
+      --accent: #2997ff;
+      --accent-glow: rgba(41,151,255,0.25);
+      --radius: 20px;
+      --radius-sm: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 600px; height: 600px;
+      top: -200px; left: -150px;
+      background: radial-gradient(circle, rgba(41,151,255,0.12), transparent 70%);
+    }
+    body::after {
+      width: 500px; height: 500px;
+      bottom: -100px; right: -100px;
+      background: radial-gradient(circle, rgba(120,80,255,0.10), transparent 70%);
+    }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: saturate(180%) blur(24px);
+      -webkit-backdrop-filter: saturate(180%) blur(24px);
+      background: rgba(0,0,0,0.65);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-inner {
+      max-width: 980px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 13px; font-weight: 500; color: var(--text-primary); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 12px; color: var(--text-secondary); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .hero {
+      max-width: 980px; margin: 0 auto; padding: 110px 24px 72px;
+      text-align: center;
+      position: relative; z-index: 1;
+      animation: fadeUp .8s ease both;
+    }
+    .hero-eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 80px); font-weight: 700;
+      letter-spacing: -0.05em; line-height: 1.02;
+      background: linear-gradient(180deg, #ffffff 60%, rgba(255,255,255,0.45) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      margin-top: 18px; font-size: 19px; font-weight: 300;
+      color: var(--text-secondary); letter-spacing: -0.01em; line-height: 1.55;
+    }
+
+    .stats-bar {
+      max-width: 680px; margin: 0 auto 64px; padding: 0 24px;
+      display: flex; justify-content: center;
+      position: relative; z-index: 1;
+      animation: fadeUp .8s .1s ease both;
+    }
+    .stat {
+      flex: 1; text-align: center; padding: 28px 0;
+      border-right: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+    .stat:first-child { border-left: 1px solid var(--glass-border); }
+    .stat-num {
+      font-size: 40px; font-weight: 700; letter-spacing: -0.04em;
+      background: linear-gradient(180deg, #fff 50%, rgba(255,255,255,0.5));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: all 0.4s ease;
+    }
+    .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 5px; }
+
+    /* LOADING STATE */
+    .loading-state {
+      max-width: 980px; margin: 0 auto; padding: 0 24px 80px;
+      position: relative; z-index: 1;
+      animation: fadeUp .6s ease both;
+    }
+    .loading-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
+    .skeleton {
+      background: var(--glass);
+      border-radius: var(--radius);
+      border: 1px solid var(--glass-border);
+      height: 130px;
+      position: relative; overflow: hidden;
+    }
+    .skeleton::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+      animation: shimmer 1.6s infinite;
+    }
+
+    /* ERROR STATE */
+    .error-card {
+      background: rgba(255, 60, 60, 0.08);
+      border: 1px solid rgba(255, 60, 60, 0.2);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      margin: 0 24px 80px;
+      max-width: 980px;
+      margin-left: auto; margin-right: auto;
+      position: relative; z-index: 1;
+    }
+    .error-card h3 { font-size: 16px; font-weight: 600; color: #ff6b6b; margin-bottom: 8px; }
+    .error-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .error-card code {
+      background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 6px;
+      font-family: 'SF Mono', monospace; font-size: 12px;
+    }
+
+    /* RATE LIMIT NOTICE */
+    .rate-notice {
+      background: rgba(255, 180, 0, 0.06);
+      border: 1px solid rgba(255, 180, 0, 0.18);
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin-bottom: 28px;
+      font-size: 12px;
+      color: rgba(255, 200, 60, 0.85);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .rate-notice a { color: var(--accent); text-decoration: none; }
+    .rate-notice a:hover { text-decoration: underline; }
+
+    .section {
+      max-width: 980px; margin: 0 auto; padding: 0 24px 80px;
+      position: relative; z-index: 1;
+      animation: fadeUp .6s .15s ease both;
+    }
+    .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; flex-wrap: wrap; }
+    .level-pill {
+      font-size: 11px; font-weight: 600; letter-spacing: .07em;
+      text-transform: uppercase; padding: 5px 12px; border-radius: 20px;
+      background: rgba(41,151,255,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(41,151,255,0.25);
+      backdrop-filter: blur(8px);
+    }
+    .section-title { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-primary); }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
+
+    .card {
+      display: block; background: var(--glass);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      text-decoration: none; color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1),
+                  background .25s ease,
+                  border-color .25s ease,
+                  box-shadow .35s ease;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    }
+    .card::after {
+      content: '→';
+      position: absolute; bottom: 28px; right: 28px;
+      font-size: 15px; color: var(--text-tertiary);
+      transition: transform .2s ease, color .2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.008);
+      background: var(--surface-hover);
+      border-color: var(--glass-border-hover);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08), 0 0 40px var(--accent-glow);
+    }
+    .card:hover::after { transform: translateX(4px); color: var(--accent); }
+
+    .card-num { font-size: 11px; font-weight: 500; letter-spacing: .1em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 12px; }
+    .card-title { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 7px; }
+    .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.55; padding-right: 28px; }
+
+    .card-toggle { cursor: pointer; user-select: none; }
+    .card-toggle .toggle-arrow {
+      position: absolute; bottom: 28px; right: 28px;
+      font-size: 15px; color: var(--text-tertiary);
+      transition: transform .3s ease, color .2s ease;
+    }
+    .card-toggle.open .toggle-arrow { transform: rotate(180deg); color: var(--accent); }
+    .card-toggle.open {
+      border-color: rgba(41,151,255,0.3);
+      box-shadow: 0 0 0 1px rgba(41,151,255,0.15), 0 0 30px rgba(41,151,255,0.08);
+    }
+    .card-toggle::after { display: none; }
+
+    .submenu-wrapper {
+      grid-column: 1 / -1;
+      overflow: hidden;
+      max-height: 0; opacity: 0; margin-top: 0;
+      transition: max-height .5s cubic-bezier(.4,0,.2,1), opacity .35s ease, margin .3s ease;
+    }
+    .submenu-wrapper.open { max-height: 900px; opacity: 1; margin-top: 6px; }
+    .submenu {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 22px;
+      backdrop-filter: blur(30px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .submenu-title {
+      font-size: 11px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-tertiary);
+      margin-bottom: 16px; padding-left: 4px;
+    }
+    .submenu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; }
+    .subcard {
+      display: block; text-decoration: none;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      padding: 15px 17px;
+      color: var(--text-primary);
+      backdrop-filter: blur(12px);
+      transition: background .2s, border-color .2s,
+                  transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+      position: relative;
+    }
+    .subcard::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+    }
+    .subcard:hover {
+      background: rgba(255,255,255,0.10);
+      border-color: var(--glass-border-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px var(--accent-glow);
+    }
+    .subcard-name { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+    .subcard-label { font-size: 11px; color: var(--text-tertiary); margin-top: 3px; }
+    .subcard-arrow { position: absolute; top: 15px; right: 15px; font-size: 11px; color: var(--text-tertiary); transition: transform .2s, color .2s; }
+    .subcard:hover .subcard-arrow { transform: translateX(2px); color: var(--accent); }
+
+    /* LAST UPDATED BADGE */
+    .last-updated {
+      font-size: 11px; color: var(--text-tertiary);
+      display: flex; align-items: center; gap: 5px;
+      margin-left: auto;
+    }
+    .live-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #30d158;
+      box-shadow: 0 0 8px #30d158;
+      animation: pulse 2s infinite;
+    }
+
+    footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 30px 24px 48px;
+      margin-top: 12px;
+      position: relative; z-index: 1;
+      backdrop-filter: blur(10px);
+    }
+    .footer-inner {
+      max-width: 980px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 8px;
+    }
+    footer p { font-size: 12px; color: var(--text-tertiary); }
+    footer a { font-size: 12px; color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 42px; }
+      .hero p { font-size: 16px; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--glass-border); }
+      .stat:first-child { border-left: none; border-top: 1px solid var(--glass-border); }
+      .nav-links { display: none; }
+      .submenu-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Prueba De Github Pages</h1>
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">UTU 2026</a>
+      <ul class="nav-links">
+        <li><a href="#contenido">Ejercicios</a></li>
+        <li><a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
 
+  <section class="hero">
+    <span class="hero-eyebrow">Programación Fullstack</span>
+    <h1>Ejercicios del curso</h1>
+    <p>Repositorio de trabajos realizados durante el año.<br>UTU · 2026</p>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num" id="stat-niveles">—</div>
+      <div class="stat-label">Niveles</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-ejercicios">—</div>
+      <div class="stat-label">Ejercicios</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2026</div>
+      <div class="stat-label">Año</div>
+    </div>
+  </div>
+
+  <div id="contenido" style="position:relative;z-index:1;"></div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 thiagoo-carba · UTU</p>
+      <a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank">Ver en GitHub ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    // ─── CONFIGURACIÓN ───────────────────────────────────────────────────────────
+    const GITHUB_USER = 'thiagoo-carba';
+    const GITHUB_REPO = 'programacionFullstack-UTU-2026';
+    const BASE_URL    = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents`;
+    const RAW_BASE    = `https://${GITHUB_USER}.github.io/${GITHUB_REPO}`;
+
+    // Mapeos de nombres amigables (se usan si no hay README con nombre)
+    const MONTH_NAMES = {
+      '1-Marzo': 'Marzo', '2-Abril': 'Abril', '3-Mayo': 'Mayo',
+      '4-Junio': 'Junio', '5-Julio': 'Julio', '6-Agosto': 'Agosto',
+      '7-Setiembre': 'Setiembre', '8-Octubre': 'Octubre',
+      '9-Noviembre': 'Noviembre',
+    };
+
+    // ─── HELPERS ─────────────────────────────────────────────────────────────────
+
+    async function ghFetch(path) {
+      const url = path.startsWith('http') ? path : `${BASE_URL}/${path}`;
+      const res = await fetch(url, {
+        headers: { 'Accept': 'application/vnd.github+json' }
+      });
+      if (!res.ok) throw Object.assign(new Error(`GitHub API error ${res.status}`), { status: res.status });
+      return res.json();
+    }
+
+    function isDir(item)  { return item.type === 'dir'; }
+    function isFile(item) { return item.type === 'file'; }
+
+    // Extrae número de un nombre como "Ejercicio_1", "Ejercicio_01", etc.
+    function parseExerciseNum(name) {
+      const m = name.match(/(\d+)/);
+      return m ? parseInt(m[1], 10) : 999;
+    }
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    // Mapeo de mes folder -> nivel (extensible)
+    function levelForMonth(folder) {
+      const num = parseInt(folder.match(/^(\d+)/)?.[1] || '0');
+      if (num <= 3) return 1;
+      if (num <= 6) return 2;
+      return 3;
+    }
+
+    // ─── RENDER ──────────────────────────────────────────────────────────────────
+
+    function renderSkeleton() {
+      const container = document.getElementById('contenido');
+      container.innerHTML = `
+        <div class="loading-state">
+          <div class="loading-grid">
+            ${[1,2,3].map(() => `<div class="skeleton"></div>`).join('')}
+          </div>
+        </div>`;
+    }
+
+    function renderError(msg, isRateLimit = false) {
+      const container = document.getElementById('contenido');
+      document.getElementById('stat-niveles').textContent = '—';
+      document.getElementById('stat-ejercicios').textContent = '—';
+
+      if (isRateLimit) {
+        container.innerHTML = `
+          <div class="error-card" style="max-width:980px;margin:0 auto 80px;padding:0 24px;">
+            <div style="background:rgba(255,180,0,0.06);border:1px solid rgba(255,180,0,0.2);border-radius:var(--radius);padding:28px 30px;">
+              <h3 style="color:#ffc13a;font-size:16px;font-weight:600;margin-bottom:10px;">⏳ Límite de requests de GitHub alcanzado</h3>
+              <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">
+                La API pública de GitHub tiene un límite de 60 requests/hora por IP.<br>
+                Podés <a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank" style="color:var(--accent);">ver el repositorio directamente en GitHub</a>
+                o volver en unos minutos.
+              </p>
+            </div>
+          </div>`;
+      } else {
+        container.innerHTML = `
+          <div class="error-card">
+            <h3>⚠ No se pudo cargar el repositorio</h3>
+            <p>${msg}<br><br>
+              Verificá que el repositorio <code>${GITHUB_USER}/${GITHUB_REPO}</code> sea público,
+              o <a href="https://github.com/thiagoo-carba/programacionFullstack-UTU-2026" target="_blank" style="color:var(--accent);">miralo directamente en GitHub</a>.
+            </p>
+          </div>`;
+      }
+    }
+
+    // Renderiza una sección (mes) con sus ejercicios
+    function renderSection(monthFolder, exercises, levelNum, isRateLimited) {
+      const container = document.getElementById('contenido');
+      const monthLabel = MONTH_NAMES[monthFolder] || monthFolder;
+      const sectionId  = `nivel-${monthFolder.replace(/[^a-z0-9]/gi, '-')}`;
+
+      const section = document.createElement('div');
+      section.className = 'section';
+      section.id = sectionId;
+
+      // Header
+      section.innerHTML = `
+        <div class="section-header">
+          <span class="level-pill">Nivel ${levelNum}</span>
+          <span class="section-title">Fundamentos — ${monthLabel}</span>
+          <span class="last-updated">
+            <span class="live-dot"></span>
+            Desde GitHub
+          </span>
+        </div>
+        ${isRateLimited ? `
+        <div class="rate-notice">
+          ⚠ Límite de API alcanzado — mostrando datos parciales.
+          <a href="https://github.com/${GITHUB_USER}/${GITHUB_REPO}" target="_blank">Ver en GitHub →</a>
+        </div>` : ''}
+        <div class="cards" id="cards-${sectionId}"></div>
+      `;
+      container.appendChild(section);
+
+      const cardsEl = section.querySelector(`#cards-${sectionId}`);
+
+      exercises.forEach((ex, idx) => {
+        const exNum  = pad(parseExerciseNum(ex.name));
+        const exName = ex.name.replace(/_/g, ' ');
+
+        if (ex.subcards && ex.subcards.length > 0) {
+          // ── Card expandible con subcarpetas ──
+          const cardId  = `card-${sectionId}-${idx}`;
+          const menuId  = `menu-${sectionId}-${idx}`;
+
+          const toggleCard = document.createElement('div');
+          toggleCard.className = 'card card-toggle';
+          toggleCard.id = cardId;
+          toggleCard.innerHTML = `
+            <div class="card-num">Ejercicio ${exNum}</div>
+            <div class="card-title">${exName}</div>
+            <div class="card-desc">Contiene ${ex.subcards.length} variante${ex.subcards.length !== 1 ? 's' : ''}.</div>
+            <span class="toggle-arrow">↓</span>
+          `;
+          toggleCard.addEventListener('click', () => {
+            const c = document.getElementById(cardId);
+            const m = document.getElementById(menuId);
+            c.classList.toggle('open');
+            m.classList.toggle('open');
+          });
+          cardsEl.appendChild(toggleCard);
+
+          // Submenu
+          const wrapper = document.createElement('div');
+          wrapper.className = 'submenu-wrapper';
+          wrapper.id = menuId;
+
+          const subcardHTML = ex.subcards.map(sc => `
+            <a href="${RAW_BASE}/${ex.path}/${sc.name}/index.html" class="subcard" target="_blank">
+              <div class="subcard-name">${sc.name.replace(/_/g, ' ')}</div>
+              <div class="subcard-label">Variante</div>
+              <span class="subcard-arrow">→</span>
+            </a>
+          `).join('');
+
+          wrapper.innerHTML = `
+            <div class="submenu">
+              <div class="submenu-title">Elegí una variante</div>
+              <div class="submenu-grid">${subcardHTML}</div>
+            </div>
+          `;
+          cardsEl.appendChild(wrapper);
+
+        } else {
+          // ── Card simple ──
+          const card = document.createElement('a');
+          card.className = 'card';
+          card.href = `${RAW_BASE}/${ex.path}/index.html`;
+          card.target = '_blank';
+          card.innerHTML = `
+            <div class="card-num">Ejercicio ${exNum}</div>
+            <div class="card-title">${exName}</div>
+            <div class="card-desc">HTML &amp; CSS · ${monthLabel}</div>
+          `;
+          cardsEl.appendChild(card);
+        }
+      });
+    }
+
+    // ─── LÓGICA PRINCIPAL ─────────────────────────────────────────────────────────
+
+    async function loadRepo() {
+      renderSkeleton();
+
+      let rateLimited = false;
+      let root;
+
+      try {
+        root = await ghFetch('');
+      } catch (e) {
+        renderError(e.message, e.status === 403);
+        return;
+      }
+
+      // Filtrar carpetas de meses (nombradas como "1-Marzo", "2-Abril", etc.)
+      const monthFolders = root
+        .filter(item => isDir(item) && /^\d+-[A-Za-z]/.test(item.name))
+        .sort((a, b) => parseInt(a.name) - parseInt(b.name));
+
+      if (monthFolders.length === 0) {
+        renderError('No se encontraron carpetas de meses en el repositorio.');
+        return;
+      }
+
+      // Limpiar skeleton
+      document.getElementById('contenido').innerHTML = '';
+
+      let totalExercicios = 0;
+      const nivelesSeen = new Set();
+
+      for (const month of monthFolders) {
+        let monthContents;
+        try {
+          monthContents = await ghFetch(month.path);
+        } catch (e) {
+          if (e.status === 403) { rateLimited = true; break; }
+          continue;
+        }
+
+        // Subcarpetas de ejercicios dentro del mes
+        const exerciseFolders = monthContents
+          .filter(item => isDir(item) && /ejercicio/i.test(item.name))
+          .sort((a, b) => parseExerciseNum(a.name) - parseExerciseNum(b.name));
+
+        if (exerciseFolders.length === 0) continue;
+
+        // Para cada ejercicio, ver si tiene sub-carpetas (variantes) o un index.html directo
+        const exercises = [];
+        for (const ex of exerciseFolders) {
+          let exContents;
+          try {
+            exContents = await ghFetch(ex.path);
+          } catch (e) {
+            if (e.status === 403) { rateLimited = true; break; }
+            exContents = [];
+          }
+
+          const hasIndex    = exContents.some(f => isFile(f) && f.name.toLowerCase() === 'index.html');
+          const subDirs     = exContents.filter(item => isDir(item));
+
+          if (!hasIndex && subDirs.length > 0) {
+            // Es un ejercicio con variantes
+            exercises.push({ name: ex.name, path: ex.path, subcards: subDirs });
+          } else {
+            // Ejercicio simple
+            exercises.push({ name: ex.name, path: ex.path, subcards: [] });
+          }
+
+          totalExercicios++;
+        }
+
+        const level = levelForMonth(month.name);
+        nivelesSeen.add(level);
+        renderSection(month.name, exercises, level, rateLimited);
+
+        if (rateLimited) break;
+      }
+
+      // Actualizar stats
+      document.getElementById('stat-niveles').textContent    = nivelesSeen.size || '—';
+      document.getElementById('stat-ejercicios').textContent = totalExercicios  || '—';
+
+      // Actualizar nav links dinámicamente
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.innerHTML = `
+        <li><a href="#contenido">Ejercicios</a></li>
+        <li><a href="https://github.com/${GITHUB_USER}/${GITHUB_REPO}" target="_blank">GitHub</a></li>
+      `;
+    }
+
+    // ─── INIT ─────────────────────────────────────────────────────────────────────
+    loadRepo();
+  </script>
 
 </body>
 </html>
