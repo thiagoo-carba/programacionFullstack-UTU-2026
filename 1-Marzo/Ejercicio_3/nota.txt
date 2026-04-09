@@ -1,0 +1,8 @@
+8
+
+Muy bien encaminado. Se detectan algunas confusiones, principalmente con nav y article en ciertos casos.
+
+nav: puede ir dentro de un sidebar. Se utiliza para cualquier parte de la página que permita la navegación, ya sea interna o hacia otras páginas.
+article: representa una parte independiente del contenido principal, que no sigue necesariamente el flujo de la página (por ejemplo, una publicación, un bloque externo o similar).
+
+Buen progreso, seguí así.
