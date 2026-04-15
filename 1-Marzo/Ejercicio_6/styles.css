@@ -127,10 +127,18 @@ a {
     transform: scale(1.05);
 }
 
+.nivel3 {
+    padding-top: 20;
+    margin-top: 90px;
+}
+
 .nav {
     background-color: #2d3436;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
+    position: fixed;
+    width: 100%;
+    z-index: 100;
     p {
         color: white;
         padding: 10px;
@@ -141,4 +149,41 @@ a {
         padding-top: 8px;
 
     }
+}
+.cat {
+    background-color: #74b9ff;
+    width: 100%;
+    height: 35px;
+    position:fixed;
+    top: 400px;
+    width: 100%;
+    
+    p {
+        padding: 10px;
+    }
+}
+.cat-wrapper {
+    margin-top: 45px;
+    height: 285px;
+    position: relative;
+    z-index: 1;
+}
+
+.vacio {
+    height: 250px;
+}
+
+.contenido {
+    border-top: #d63031 dashed 3px;
+    background-color: #dcdbdb;
+    width: 100%;
+    height: 800px; 
+    padding: 20px;
+    position: relative;
+    right: 0;
+    z-index: 2;
+    p {
+        padding: 20px;
+    }
+    
 }
