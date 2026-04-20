@@ -162,12 +162,6 @@ a {
         padding: 10px;
     }
 }
-.cat-wrapper {
-    margin-top: 45px;
-    height: 285px;
-    position: relative;
-    z-index: 1;
-}
 
 .vacio {
     height: 250px;
