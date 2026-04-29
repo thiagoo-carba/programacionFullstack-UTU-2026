@@ -12,33 +12,34 @@ header {
     display: flex;
     align-items: center;
     gap: 20px;
-    height: 70px;
+    height: 85px;
 }
 
 .logo {
     width: 70px;
     height: auto;
     margin: 10px;
+  
 }
 .hdr1 {
     display: flex;
     gap: 20px;
-    font-size: 10px;
+    font-size: 15px;
     font-weight: bold;
 }
 .hdr2 {
     display: flex;
     gap: 20px;
-    font-size: 10px;
+    font-size: 15px;
     font-weight: bold;
     right: 20px;
     position: absolute;
     align-items: center;
 }
 .btn1, .btn2{
-    width: 70px;  
-    height: 25px;
-    font-size: 10px;
+    width: 80px;  
+    height: 30px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 50px;
@@ -56,24 +57,24 @@ header {
     gap: 10px;
 }
 .rw{
-    border-bottom: #008248 3px solid;
-    padding-top: 32px;
-    padding-bottom: 25px;
+    border-bottom: #008248 5px solid;
+    padding-top: 37px;
+    padding-bottom: 26px;
     
 }
 .mn, .gc{
-    padding-top: 32px;
-    padding-bottom: 20px;
+    padding-top: 37px;
+    padding-bottom: 26px;
 }
 .strbcks {
-    font-size: 9px;
+    font-size: 14px;
     background-color: #1e3932;
-    height: 30px;
+    height: 42px;
     font-family: "SoDo Sans", Helvetica, Arial, sans-serif;
     h3{
         color: white;
-        padding-left: 115px;
-        padding-top: 8px;
+        padding-left: 100px;
+        padding-top: 11px;
         font-weight: bold;
     } 
     
@@ -87,4 +88,78 @@ header {
     display: flex;
     gap: 20px;
     padding: 20px;
+    background-color: #d4e9e2;
+    padding: 0;
+ align-items: center;
+}
+
+.contenedor-img {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    width: 100%;
+    
+}
+.main-img {
+    width: 800px;
+    height: auto;
+}
+.FC {
+    font-size: 40px;
+    font-weight: bold;
+    align-items: center;
+    padding-bottom: 5px;
+  
+}
+.cont-txt {
+    align-items: center;
+    padding-top: 20px;
+    padding: 50px;
+    font-family: 'Inter', sans-serif;
+    width: 1000px;
+   
+  
+    }
+.txt2{
+    font-size: 20px;
+    font-weight:400; 
+        
+}
+.txt{
+    font-size: 20px;
+   font-weight:400; 
+   padding-top: 25px;
+ }
+.btn3{
+    width: 110px;  
+    height: 40px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    outline: none;
+    background-color: #008248;
+    border: none;
+    color: white;
+    margin: 35px 0px;
+}
+.gs {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    padding-top: 200px;
+}
+.h21 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.Num {
+    display: flex;
+    
 }
