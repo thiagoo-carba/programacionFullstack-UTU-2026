@@ -1,0 +1,18 @@
+*{margin: 0px}
+p{
+    font-size: 8px;
+}
+body{
+    background-color: rgb(216, 216, 216);
+    
+}
+h1{
+    font-size: 60px;
+    padding-bottom: 20px;
+    background-color: rgb(234, 234, 234);
+    border-radius: 200px;
+    margin-bottom: 50px;
+}
+.row{
+    padding-bottom: 30px;
+}
