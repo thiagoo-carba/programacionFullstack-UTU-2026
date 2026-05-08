@@ -8,13 +8,18 @@ body{
     
 }
 h1{
-    font-size: 70px;
+    font-size: clamp(20px, 5vw, 70px); /* clamp() recibe 3 valores: tamaño mínimo, tamaño fluido y tamaño máximo.
+   El tamaño fluido usa "vw" (viewport width) que representa el % del ancho de pantalla.
+   Esto hace que el texto se agrande o achique automáticamente según el tamaño de la pantalla,
+   sin salirse de los límites definidos por el mínimo y el máximo. 
+   Me estresaba que para el celu el tamaño de la letra se viera gigante etnonces obviamente le pedi a la IA pero ya lo aprendi y esta justificado jajaajj
+   */
     padding: 0px 60px;
     background-color: #ffffff;
     border-radius: 200px;
     margin-bottom: 40px;
-    margin-left: 350px;
-    margin-right: 350px;
+    margin-left: 20%;
+    margin-right: 20%;
     margin-top: 30px;
     padding-bottom: 23px;
 }
