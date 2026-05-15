@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Motors Time Machine</title>
+
+  <!-- Bootstrap: se usa para contenedores, grilla responsive y columnas. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="era-future">
+  <div id="timeTunnel" class="time-tunnel" aria-hidden="true">
+    <div class="tunnel-ring"></div>
+    <p>Abriendo portal temporal...</p>
+  </div>
+
+  <div id="crtOverlay" class="crt-overlay" aria-hidden="true"></div>
+  <div id="weatherLayer" class="weather-layer" aria-hidden="true"></div>
+
+  <main class="machine-shell">
+    <section class="control-zone">
+      <div class="container-fluid px-lg-5">
+        <header class="brand-row">
+          <div>
+            <p id="eraKicker" class="era-kicker">Hyper showroom 2035</p>
+            <h1>Luxury Motors Time Machine</h1>
+          </div>
+
+          <div class="audio-panel">
+            <button id="muteButton" class="audio-button" type="button">Mute: OFF</button>
+            <span id="audioLabel">Audio preparado: future.mp3</span>
+          </div>
+        </header>
+
+        <div class="row align-items-stretch g-4">
+          <div class="col-xl-7">
+            <article class="era-stage">
+              <div class="floating-badge" id="floatingBadge">2035</div>
+              <h2 id="eraTitle">El lujo acaba de doblar el espacio-tiempo.</h2>
+              <p id="eraDescription">
+                Escribe un ano y mira como toda la concesionaria muta: interfaz, humor, inventario, sonidos y ambiente.
+              </p>
+
+              <form id="timeForm" class="time-form" autocomplete="off">
+                <label for="yearInput">Ano destino</label>
+                <div class="travel-row">
+                  <input id="yearInput" type="number" value="2035" placeholder="Ej: 1998, 1980, 1750, -65000000">
+                  <button id="travelButton" type="submit">Viajar en el tiempo</button>
+                </div>
+                <small>Prueba 2035, 1998, 1980, 1500, o -65000000.</small>
+              </form>
+            </article>
+          </div>
+
+          <div class="col-xl-5">
+            <aside class="era-console">
+              <div class="console-screen">
+                <span id="yearDisplay">2035</span>
+                <small id="consoleSubtitle">Destino actual</small>
+              </div>
+              <dl>
+                <div>
+                  <dt>Modo visual</dt>
+                  <dd id="visualMode">Neon luxury</dd>
+                </div>
+                <div>
+                  <dt>Inventario</dt>
+                  <dd id="inventoryMode">Hypercars</dd>
+                </div>
+                <div>
+                  <dt>Peligro</dt>
+                  <dd id="dangerMode">Factura dimensional</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="showroom-zone">
+      <div class="container-fluid px-lg-5">
+        <div class="section-title">
+          <p id="collectionLabel">Inventario temporal</p>
+          <h2 id="collectionTitle">Vehiculos de lujo para clientes que no respetan el calendario</h2>
+        </div>
+
+        <!-- Bootstrap Grid System:
+             col-12 = una card por fila en celular.
+             col-md-6 = dos cards en tablet.
+             col-xl-4 = tres cards en escritorio. -->
+        <div id="vehicleGrid" class="row g-4"></div>
+      </div>
+    </section>
+
+    <section class="museum-zone">
+      <div class="container-fluid px-lg-5">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <article class="info-card">
+              <h3>Recepcion</h3>
+              <p id="receptionText">Un asistente holografico limpia el parabrisas con fisica cuantica.</p>
+            </article>
+          </div>
+          <div class="col-lg-4">
+            <article class="info-card">
+              <h3>Detalle absurdo</h3>
+              <p id="easterText">Cada epoca tiene su propio chiste secreto.</p>
+            </article>
+          </div>
+          <div class="col-lg-4">
+            <article class="info-card">
+              <h3>Garantia</h3>
+              <p id="warrantyText">Valida hasta que el calendario deje de discutir.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="secretButton" class="secret-button" type="button">?</button>
+  <div id="toastMessage" class="toast-message" role="status" aria-live="polite"></div>
+
+  <!-- Elementos de audio preparados. No tienen canciones reales.
+       Coloca tus archivos en /audio y cambia las rutas en script.js si quieres. -->
+
+    <audio id="ambientAudio" loop></audio>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
