@@ -139,14 +139,22 @@ if(opcion == 1){
 
 /*
 let numero = Math.floor(Math.random() * 10) + 1;
-let opcion = parseFloat(prompt("Adivina el numero entre 1 y 10: "));
+let trys = 0;
 
-if(opcion == numero){
+while(trys != 3){
+    trys++;
+    let opcion = parseFloat(prompt("Adivina el numero entre 1 y 10: "));
+
+    if(opcion == numero){
     alert("¡Correcto! El número era: " + numero);
-}else{
-    alert("Incorrecto. El número era: " + numero);
+    break;
+    }else{
+        alert("Incorrecto. Ultimo Intento");
+    }
 }
 */
+
+
 
 
 /*
