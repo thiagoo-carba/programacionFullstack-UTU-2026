@@ -63,20 +63,36 @@ contador++;
 }); */
 
 /* 9 */
-const boton = document.getElementById("boton");
-const formulario = document.getElementById("form");
+/* const boton = document.getElementById("boton");
 const nombreInput = document.getElementById("nombre");
 const colorInput = document.getElementById("color");
 const mensajeInput = document.getElementById("mensaje");
+const card = document.getElementById("card");
+const validacion = document.getElementById("validacion");
+
 
 boton.addEventListener("click", () => {
+
+    if (!nombreInput.value || !colorInput.value || !mensajeInput.value) {
+        validacion.textContent = "Por favor, completa todos los campos.";
+        validacion.classList.add("validacion-style");
+        return;
+    }
+
+    validacion.classList.remove("validacion-style");
+
+    validacion.textContent = "";
     const nombre = nombreInput.value;
     const color = colorInput.value;
     const mensaje = mensajeInput.value;
 
-    
+    document.getElementById("outputn").textContent = nombre;
+    document.getElementById("outputc").textContent = color;
+    document.getElementById("outputm").textContent = mensaje;
 
-});
+    card.classList.toggle("dark");
+}); */
+
 
 
 
