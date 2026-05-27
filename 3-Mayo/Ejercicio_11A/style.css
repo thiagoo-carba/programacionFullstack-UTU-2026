@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(175, 175, 175);
+}
+.formulario{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(205, 205, 205);
+    border-radius: 30px;
+    width: 220px;
+    height: 250px;
+
+    p{
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: -apple-system,
+            BlinkMacSystemFont,
+            "SF Pro Display",
+            "SF Pro Text",
+            "Inter",
+            sans-serif;
+    }
+
+}
+
+.titulo,.URL{
+    border-radius: 30px;
+    font-size: 15px;
+    border: none;
+    padding: 5px;
+    width: 150px;
+    
+}
+.titulo{
+    margin-bottom: 20px;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.tituloweb{
+display: flex;
+justify-content: center;
+
+    h1{
+        padding: 30px;
+        font-size: 25px;
+        font-weight: 400;
+        font-family: -apple-system, BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",sans-serif;
+        font-style: italic;
+    }
+}
+
+.agregar{
+    margin-top: 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    border: none;
+    padding: 5px 12px;
+    
+    color: white;
+    background-color: rgb(53, 172, 69);
+    cursor: pointer;
+    border:none;
+    border-radius: 30px;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Inter",
+        sans-serif;
+}
+
+.info{
+    background-color: rgb(192, 192, 192);
+    border-radius: 30px;
+    width: 170px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 55px 25px;
+    gap: 15px;
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        font-family: -apple-system,
+            BlinkMacSystemFont,
+            "SF Pro Display",
+            "SF Pro Text",
+            "Inter",
+            sans-serif;
+    }
+}
+.eliminar{
+    margin-top: 15px;
+    border-radius: 30px;
+    font-size: 16px;
+    border: none;
+    padding: 5px 12px;
+    color: white;
+    background-color: rgb(231, 35, 35);
+    cursor: pointer;
+    border:none;
+    border-radius: 30px;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Inter",
+        sans-serif;
+    
+}
+
+.galeria{
+    border-radius: 40px;
+    display: flex;
+    width: 97%;        
+    height: 1000px;
+    background-color: rgb(205, 205, 205);
+    gap: 25px;  
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card-image{
+    width: 250px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.card{
+    margin: 20px 30px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 30px 20px 20px 20px;
+    border-radius: 30px;
+    height: 250px;
+    h2{
+        font-size: 20px;
+        font-weight: 500;
+        font-family: -apple-system,
+            BlinkMacSystemFont,
+            "SF Pro Display",
+            "SF Pro Text",
+            "Inter",
+            sans-serif;
+    }
+}
+.favorito, .eliminar-img{
+    border-radius: 30px;
+    border: none;
+    padding: 5px 12px;
+}
+.favorito{
+    background-color: rgb(255, 213, 0);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Inter",
+        sans-serif;
+
+
+}
+
+.eliminar-img{
+    background-color: rgb(231, 35, 35);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Inter",
+        sans-serif;
+}
+
+.validacion-style{
+    width: 250px;
+    padding: 10px;
+    margin: 30px;
+    background: #e68c8c;
+    color: white;
+    border: 2px solid rgb(255, 0, 0);
+    border-radius: 10px;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Inter",
+        sans-serif;
+}
+.card-footer{
+    display: flex;
+    gap: 30px;
+}
