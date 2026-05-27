@@ -6,8 +6,25 @@ const urlInput = document.querySelector(".URL");
 
 const galeria = document.querySelector(".galeria");
 const validacion = document.querySelector("#validacion");
+const info = document.querySelector(".info");
+
+const cntimg = document.querySelector(".contador1");
+const cntfav = document.querySelector(".contador2");
+const cntnfav = document.querySelector(".contador3");
+const btnTodas = document.querySelector(".btn-todas");
+const btnFavoritas = document.querySelector(".btn-favoritas");
+const btnNoFavoritas = document.querySelector(".btn-no-favoritas");
+
 
 agregar.addEventListener("click", (e) => {
+
+    contador1 = document.querySelectorAll(".card").length + 1;
+    cntimg.textContent = `${contador1}`;
+    contador2 = document.querySelectorAll(".favorito-style").length;
+    cntfav.textContent = `${contador2}`;
+    contador3 = document.querySelectorAll(".card:not(.favorito-style)").length + 1;
+    cntnfav.textContent = `${contador3}`;
+
 
     e.preventDefault();
 
@@ -51,9 +68,23 @@ agregar.addEventListener("click", (e) => {
     favoritoBtn.classList.add("favorito");
     favoritoBtn.textContent = "Favorito";
 
+    favoritoBtn.addEventListener("click", () => {
+    card.classList.toggle("favorito-style");
+    contador2 = document.querySelectorAll(".favorito-style").length;
+    contador3 = document.querySelectorAll(".card:not(.favorito-style)").length;
+    cntfav.textContent = `${contador2}`;
+    cntnfav.textContent = `${contador3}`;
+});
+
     const eliminarBtn = document.createElement("button");
     eliminarBtn.classList.add("eliminar-img");
     eliminarBtn.textContent = "Eliminar";
+
+    eliminarBtn.addEventListener("click", () => {
+        card.remove();
+        contador1--;
+        cntimg.textContent = `${contador1}`;
+    });
 
     cardFooter.appendChild(favoritoBtn);
     cardFooter.appendChild(eliminarBtn);
@@ -71,3 +102,47 @@ agregar.addEventListener("click", (e) => {
     urlInput.value = "";
 
 });
+
+
+if (eliminar) {
+    eliminar.addEventListener("click", () => {
+        const elementos = document.querySelectorAll(".card");
+        elementos.forEach((elemento) => elemento.remove());
+        contador1 =0;
+        cntimg.textContent = `${contador1}`;
+        contador2 = 0;
+        cntfav.textContent = `${contador2}`;
+        contador3 = 0;
+        cntnfav.textContent = `${contador3}`;
+    });
+}
+
+// Filtrar la galería
+if (btnTodas) {
+    btnTodas.addEventListener("click", () => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => card.style.display = '');
+    });
+}
+
+if (btnFavoritas) {
+    btnFavoritas.addEventListener("click", () => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (card.classList.contains('favorito-style')) card.style.display = '';
+            else card.style.display = 'none';
+        });
+    });
+}
+
+if (btnNoFavoritas) {
+    btnNoFavoritas.addEventListener("click", () => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (!card.classList.contains('favorito-style')) card.style.display = '';
+            else card.style.display = 'none';
+        });
+    });
+}
+
+
