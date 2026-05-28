@@ -1,0 +1,1 @@
+profe los efectos ese de shadow que tienen el formulario la info y la galeria los saque de esta pagina https://uiverse.io/Yaseen549/chilly-dragon-64 queria probar diseños esta buena jajaj
