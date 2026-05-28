@@ -41,11 +41,11 @@ agregar.addEventListener("click", (e) => {
 
     validacion.classList.remove("validacion-style");
     validacion.textContent = "";
-    // CARD
+    
     const card = document.createElement("div");
     card.classList.add("card");
 
-    // HEADER
+    
     const cardHeader = document.createElement("div");
     cardHeader.classList.add("card-header");
 
@@ -55,12 +55,12 @@ agregar.addEventListener("click", (e) => {
 
     cardHeader.appendChild(cardTitle);
 
-    // IMAGEN
+    
     const imagen = document.createElement("img");
     imagen.classList.add("card-image");
     imagen.src = url;
 
-    // FOOTER
+    
     const cardFooter = document.createElement("div");
     cardFooter.classList.add("card-footer");
 
@@ -89,15 +89,15 @@ agregar.addEventListener("click", (e) => {
     cardFooter.appendChild(favoritoBtn);
     cardFooter.appendChild(eliminarBtn);
 
-    // ARMAR CARD
+    
     card.appendChild(cardHeader);
     card.appendChild(imagen);
     card.appendChild(cardFooter);
 
-    // AGREGAR A GALERÍA
+    
     galeria.appendChild(card);
 
-    // LIMPIAR INPUTS
+    
     tituloInput.value = "";
     urlInput.value = "";
 
@@ -117,7 +117,7 @@ if (eliminar) {
     });
 }
 
-// Filtrar la galería
+
 if (btnTodas) {
     btnTodas.addEventListener("click", () => {
         const cards = document.querySelectorAll('.card');
