@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi coleccion favorita</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <header>
+
+        <h1>Mi coleccion personal</h1>
+        <p>Aqui podras agregar tus series, peliculas o juegos favoritos.</p>
+
+    </header>
+    
+    <div class="main">
+
+        <div class="panel-izq">
+
+        
+            <div class="formulario">
+                <P>Nombre:</P>
+                <input type="text" class="nombre">
+
+                <p>Descripcion:</p>
+                <input type="text" class="descripcion">
+
+                <p>Categoria:</p>
+                <select class="categoria" placeholder="Selecciona una categoria">
+                    <option value="serie">Serie</option>
+                    <option value="pelicula">Pelicula</option>
+                    <option value="juego">Juego</option>
+                </select>
+
+                <p>Estado:</p>
+                <select class="estado" placeholder="Estado?">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en progreso">En progreso</option>
+                    <option value="completado">Terminado</option>
+                </select>
+
+                <p>Calificación:</p>
+                <input type="number" class="calificacion" placeholder="Puntua del 1 al 5" min="1" max="5">
+
+                <p>Imagen:</p>
+                <input type="url" class="URL" placeholder="Agrega una imagen">
+
+                <button class="agregar">Agregar</button>
+            </div>
+
+            <div class="avisos">
+                <i class="bi bi-info-circle"></i>
+            </div>
+
+        </div>
+        <div class="submain">
+
+
+            <div class="card">
+
+                <div class="card-header">
+                    <h2 class="card-title">Jurassic world</h2>
+                    <p class="card-descripcion">Una emocionante aventura en un mundo prehistórico.</p>
+                </div>
+
+                <img src="https://imgs.search.brave.com/i2HKXsDiLvioEYFjboadIoZuyilRS7cFrlsXQ89yuQA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvanVy/YXNzaWMtd29ybGQt/ZGlub3NhdXItamF3/LXMxd2Y0MWpqMTNw/NWpwdm4uanBn" class="card-image">
+                
+                
+                <div class="card-text">
+
+                    <p class="card-categoria">Categoria: <span class="card-categoria-valor">Serie</span></p>
+                    <p class="card-estado">Estado: <span class="card-estado-valor">Pendiente</span></p>
+                    <p class="card-calificacion">Clasificacion: <span class="card-calificacion-valor">0</span> </p>
+
+                </div>
+                
+                <div class="card-footer">
+
+                    <select class="cambiar-estado">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en progreso">En progreso</option>
+                        <option value="completado">Terminado</option>
+                    </select>
+                    
+                    <button class="eliminar-card">Eliminar</button>
+                </div>
+
+            </div> 
+           
+
+        </div>
+
+
+
+
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
