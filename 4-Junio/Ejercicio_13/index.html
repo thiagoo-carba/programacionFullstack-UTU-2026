@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <div class="header">
+        Chistes
+        <div>
+            <select class="lang">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="controles">
+
+        <div class="filtro1">
+            <label>
+                <input class="sexista" type="checkbox" value="sexist">
+                Sexist
+            </label>
+            <label>
+                <input class="explicit" type="checkbox" value="explicit">
+                Explicit
+            </label>
+            <label>
+                <input class="nsfw" type="checkbox" value="nsfw">
+                NSFW
+            </label>
+            <label>
+                <input class="racista" type="checkbox" value="racist">
+                Racist
+            </label>
+
+            <label>
+                <input class="political" type="checkbox" value="political">
+                Political
+            </label>
+
+            <label>
+                <input class="religious" type="checkbox" value="religious">
+                Religious
+            </label>
+        </div>
+
+        <select class="categoria">
+            <option value="Any">Cualquiera</option>
+            <option value="Programming">Programación</option>
+            <option value="Christmas">Navidad</option>
+        </select>   
+
+        <select class="tipo">
+            <option value="single">Single</option>
+            <option value="twopart">Two Part</option>
+        </select>
+
+        <button class="mostrar">Mostrar Chiste</button>
+
+    </div>
+
+    <div class="charging"></div>
+
+    <div class="chistediv">
+        <div class="chiste">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat provident tenetur quisquam tempora laborum?</div>
+    </div>
+
+    <div class="chistediv">
+        <div class="error">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, consequuntur!</div>
+    </div>
+</body>
+</html>

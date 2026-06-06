@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",sans-serif;
+}
+body{
+    background-color: #18181b;
+}
+.header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: 50px;
+    margin-bottom:20px;
+    font-size: 45px;
+}
+button{
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border:none;
+    border-radius: 30px;
+    
+}
+.controles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    
+
+}
+.mostrar{
+   color: white;
+   display: flex;
+   background: linear-gradient(to right, #77005b, #ff0000);
+}
+
+select{
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border:none;
+    border-radius: 30px;
+}
+
+.tipo{
+    background: linear-gradient(to right, #82007d, #77005b);
+    color: white;
+}
+
+
+.categoria{
+    background: linear-gradient(to right, #6e007e, #82007d);
+    color: white;
+}
+.lang{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.chiste{
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 25px;
+
+    width: 400px;
+    height: 150px;
+
+    border-radius: 30px;
+
+    background: #1d1d20;
+    
+
+    box-shadow:
+    12px 12px 24px #000000,
+    -8px -8px 24px #3a3a3c;
+}
+.chistediv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+        
+}
+.error{
+    text-align: center;
+    color: rgb(95, 95, 95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    margin-top: 180px;
+    width: 240px;
+    height: 100px;
+    padding: 25px;
+    border: 5px solid rgb(151, 151, 151);
+    border-radius: 30px;
+
+    background: #1d1d20;
+    margin-bottom: 40px;
+box-shadow:
+    12px 12px 24px #000000,
+    -8px -8px 24px #3a3a3c;
+    
+}
+.filtro1{
+    gap: 20px;
+    background: linear-gradient(to right, #110082,#1c0082,#480082, #6e007e);
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border:none;
+    border-radius: 30px;
+    color: white;
+}
