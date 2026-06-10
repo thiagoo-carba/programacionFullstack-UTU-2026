@@ -30,6 +30,7 @@ button{
     border:none;
     border-radius: 30px;
     font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",sans-serif;
+    transition: all 0.25s ease;
 }
 
 .formulario{
@@ -213,7 +214,7 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     margin-bottom: 15px;
 }
 
@@ -224,7 +225,7 @@ button{
     align-items: center;
     flex-direction: column;
     margin-left: 30px;
-
+    Padding: 20px;
     width: 300px;
     height: 150px;
 
@@ -311,38 +312,52 @@ button{
     color: white;
     
 }
-.btn1{
-background: linear-gradient(to right, #00c6ff, #00b0ff);
-color: white;
-}
-.btn2{
-    background: linear-gradient(to right, #00b0ff, #0090ff);
+.btn1 {
+    background: linear-gradient(to right, #232526, #414345);
     color: white;
 }
-.btn3{
-    background: linear-gradient(to right, #0090ff, #006dff);
-    color: white;
 
-}
-.btn4{
-  background: linear-gradient(to right, #006dff, #4a4dff); 
-  color: white; 
-}
-.btn5{
-    background: linear-gradient(to right, #4a4dff, #7b3dff);
+.btn2 {
+    background: linear-gradient(to right, #2c2f31, #4b4f52);
     color: white;
 }
-.btn6{
-    background: linear-gradient(to right, #7b3dff, #a52eff);
+
+.btn3 {
+    background: linear-gradient(to right, #35383c, #555b61);
     color: white;
 }
-.btn7{
-    background: linear-gradient(to right, #a52eff, #d61fff);
+
+.btn4 {
+    background: linear-gradient(to right, #3e4348, #5f6670);
     color: white;
 }
-.btn8{
-    background: linear-gradient(to right, #d61fff, #ff4fa3);
+
+.btn5 {
+    background: linear-gradient(to right, #474d54, #69727d);
     color: white;
+}
+
+.btn6 {
+    background: linear-gradient(to right, #505862, #74808c);
+    color: white;
+}
+
+.btn7 {
+    background: linear-gradient(to right, #59636f, #8190a0);
+    color: white;
+}
+
+.btn8 {
+    background: linear-gradient(to right, #647080, #90a0b0);
+    color: white;
+}
+button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+button:active{
+    transform: translateY(0);
 }
 .card-text{
     font-size: 10px;

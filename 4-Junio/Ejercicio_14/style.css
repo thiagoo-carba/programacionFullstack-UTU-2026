@@ -1,0 +1,126 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",sans-serif;
+}
+
+
+body{
+    background-color: rgb(216, 230, 237);
+}
+button{
+   
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    border:none;
+    border-radius: 30px;
+    
+    transition: all 0.25s ease;
+}
+button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+h1{
+    margin: 10px;
+    margin-top: 25px;
+    font-size: 45px;
+    font-weight: 900;
+    font-style: italic;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.header{
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+    border-radius: 0 0 100px 100px;
+
+    button{
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+    }
+
+}
+.card{
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin:20px;
+    
+    border-radius: 30px;
+    width: 600px;
+    height:auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    img{
+        margin-top: 10px;
+        width:580px;
+        min-height: 200px;
+        max-height: 500px;
+        border-radius: 26px;
+        object-fit: cover;
+    }
+}
+
+.btn1, .btn2{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap:20px;
+    margin-top: 60px;
+
+}
+
+.contadormg, .contadorno{
+    height: 80px;
+    width:100px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    border-radius: 20px;
+}
+
+.contadormg{
+    background-color: rgb(255, 65, 87);
+    
+    
+    padding: 20px;
+}
+
+.contadorno{
+padding: 15px;
+background-color: rgb(116, 192, 250);
+}
+.alerta{
+    height: 80px;
+    width:300px;
+    padding:20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: rgb(255, 182, 190);
+    border: 1px solid rgb(255, 65, 65);
+    color: white;
+    border-radius: 20px;
+}
