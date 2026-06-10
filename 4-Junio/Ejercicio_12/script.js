@@ -1,17 +1,23 @@
 const agregar = document.querySelector(".agregar");
+let contadorcard = 0;
+const contadortexto = document.querySelector(".contador1");
 
 
 agregar.addEventListener("click", (e) => {
 
     e.preventDefault();
     const nombreInput = document.querySelector(".nombre");
-    const urlInput = document.querySelector(".url");
+    const urlInput = document.querySelector(".URL");
     const estadoInput = document.querySelector(".estado");
     const calificacionInput = document.querySelector(".calificacion");
     const descripcionInput = document.querySelector(".descripcion");
     const categoriaInput = document.querySelector(".categoria");
     const avisos = document.querySelector(".avisos");
+    
+    
+    const subSubMain = document.querySelector(".sub-sub-main");
 
+    
 
     if (nombreInput.value === "" || urlInput.value === "" || estadoInput.value === "" || calificacionInput.value === "" || descripcionInput.value === "" || categoriaInput.value === "") {
         avisos.textContent = "Por favor, complete todos los campos.";
@@ -52,7 +58,6 @@ agregar.addEventListener("click", (e) => {
 
     const cardtext = document.createElement("div");
     cardtext.classList.add("card-text");
-    cardtext.textContent = calificacionInput.value;
     card.appendChild(cardtext);
     
     const categoria = document.createElement("p");
@@ -79,22 +84,95 @@ agregar.addEventListener("click", (e) => {
     cardtext.appendChild(estado);
 
     
-    const calificacion = document.createElement("p");
-    calificacion.classList.add("card-calificacion");
-    calificacion.textContent = "Clasificacion: ";
+    const clasificacion = document.createElement("p");
+    clasificacion.classList.add("card-clasificacion");
+    clasificacion.textContent = "Clasificacion: ";
 
-    const calificacionValor = document.createElement("span");
-    calificacionValor.classList.add("card-calificacion-valor");
-    calificacionValor.textContent = calificacionInput.value;
+    const clasificacionValor = document.createElement("span");
+    clasificacionValor.classList.add("card-clasificacion-valor");
+    clasificacionValor.textContent = calificacionInput.value;
 
-    calificacion.appendChild(calificacionValor);
-    cardtext.appendChild(calificacion);
+    clasificacion.appendChild(clasificacionValor);
+    cardtext.appendChild(clasificacion);
 
     card.appendChild(cardtext);
+    
+    const footercard = document.createElement("div");
+    footercard.classList.add("card-footer");
 
+    const cambiarestado = document.createElement("button");
+    cambiarestado.classList.add("cambiar-estado");
+    cambiarestado.textContent = "Cambiar Estado";
+
+    cambiarestado.addEventListener("click", () => {
+    if(estadoValor.textContent === "pendiente"){
+        estadoValor.textContent = "en progreso";
+    } else if(estadoValor.textContent === "en progreso"){
+        estadoValor.textContent = "terminado";
+    }else if(estadoValor.textContent === "terminado"){
+        estadoValor.textContent = "pendiente";
+    }
+
+    });
+
+    const favoritoBtn = document.createElement("button");
+    favoritoBtn.classList.add("favorito-btn");
+    favoritoBtn.textContent = "Favorito";
+
+
+    favoritoBtn.addEventListener("click", () => {
+        card.classList.toggle("favorito-style");
+
+        
+    });
+
+
+
+
+
+    const eliminarBtn = document.createElement("button");
+    eliminarBtn.classList.add("eliminar-card");
+    eliminarBtn.textContent = "Eliminar";
+
+    eliminarBtn.addEventListener("click", () => {
+        card.remove();
+        contadorcard--;
+        contadortexto.textContent = contadorcard;
+    });
+    
+    footercard.appendChild(cambiarestado);
+    footercard.appendChild(favoritoBtn);
+    footercard.appendChild(eliminarBtn);
+    card.appendChild(footercard)
+
+    subSubMain.appendChild(card);   
+    contadorcard ++;
+    contadortexto.textContent=contadorcard;
+
+    
 
 
 
     
 
 }); 
+
+const btn1 = document.querySelector(".btn1");
+const btn5 = document.querySelector(".btn5");
+if (btn1) {
+    btn1.addEventListener("click", () => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => card.style.display = '');
+    });
+
+}
+
+if (btn5) {
+    btn5.addEventListener("click", () => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (card.classList.contains('favorito-style')) card.style.display = '';
+            else card.style.display = 'none';
+        });
+    });
+}

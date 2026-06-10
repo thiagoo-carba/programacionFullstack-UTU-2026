@@ -18,7 +18,8 @@ header{
     color: white;
     padding: 40px;
     margin-bottom:20px;
-    padding-left: 390px;
+    
+    padding-right: 390px;
     
 }   
 button{
@@ -95,14 +96,15 @@ button{
     
 }
 
-.submain{
+.sub-sub-main{
     display: flex;
-    
+    flex-wrap: wrap;
     flex-direction: row;
+    align-content: flex-start;
+    width: auto;
+    height: 560px;
+    margin: 0 20px;
     
-    width: 100%;
-    height: 78vh;
-    margin-left: 20px;
     margin-right: 20px;
     background-color: #1d1d20;
     padding: 20px;
@@ -110,8 +112,26 @@ button{
     12px 12px 24px #000000,
     -8px -8px 24px #3a3a3c;
     border-radius: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
     
 }
+/* esto obviamente lo hice con ia porque no me gustaba el diseño del scrollbar  */
+.sub-sub-main::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sub-sub-main::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 30px;
+}
+
+.sub-sub-main::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #a1a1a1, #3f3f3f);
+    border-radius: 30px;
+    border: 2px solid #1d1d20;
+}
+/*  */
 
 .card{
     display: flex;
@@ -120,7 +140,7 @@ button{
     align-items: center;
     background-color: #383838;
     color: white;   
-    height: 390px;
+    height: 350px;
     width: 250px;
     border-radius: 30px;
     margin:15px;
@@ -147,7 +167,7 @@ button{
         margin-bottom: -15px;
     }
     button{
-        margin-top: 20px;
+        margin-top: 10px;
         color: white;
         border: none;
         padding: 5px 12px;
@@ -155,6 +175,7 @@ button{
         border:none;
         border-radius: 30px;
         margin-bottom: -15px;
+        font-size: 10px;
         font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",sans-serif;
     }
 }
@@ -235,19 +256,143 @@ button{
     align-items: center;
     flex-direction: row;
     color: white;
+    gap: 280px;
     
 }
 .info{
+    text-align: left;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 20px;
     flex-direction: column;
     width: 300px;
-    height: 150px;
+    height: 110px;
     background: #1d1d20;
     border-radius: 30px;
     box-shadow:
     12px 12px 24px #000000,
     -8px -8px 24px #3a3a3c;
 
+    span{
+        font-weight:600;
+    }
+    
+    p{
+        font-size: 15px;
+        color: white;
+        font-weight: 100;
+    }
+
+}
+
+.submain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex:1;
+    height:100%
+
+}
+
+.filtros{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+    width: auto;
+    padding: 15px 20px;
+    border-radius: 30px;
+    background: #1d1d20;
+
+    box-shadow:
+    12px 12px 24px #000000,
+    -8px -8px 24px #3a3a3c;
+    color: white;
+    
+}
+.btn1{
+background: linear-gradient(to right, #00c6ff, #00b0ff);
+color: white;
+}
+.btn2{
+    background: linear-gradient(to right, #00b0ff, #0090ff);
+    color: white;
+}
+.btn3{
+    background: linear-gradient(to right, #0090ff, #006dff);
+    color: white;
+
+}
+.btn4{
+  background: linear-gradient(to right, #006dff, #4a4dff); 
+  color: white; 
+}
+.btn5{
+    background: linear-gradient(to right, #4a4dff, #7b3dff);
+    color: white;
+}
+.btn6{
+    background: linear-gradient(to right, #7b3dff, #a52eff);
+    color: white;
+}
+.btn7{
+    background: linear-gradient(to right, #a52eff, #d61fff);
+    color: white;
+}
+.btn8{
+    background: linear-gradient(to right, #d61fff, #ff4fa3);
+    color: white;
+}
+.card-text{
+    font-size: 10px;
+}
+.favorito-btn{
+    background-color: rgb(206, 189, 0);
+}
+.favorito-style{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #df9500;
+    color: white;   
+    height: 350px;
+    width: 250px;
+    border-radius: 30px;
+    margin:15px;
+    box-shadow:
+    12px 12px 24px #141400,
+    -8px -8px 24px #394100;
+
+    img{
+        margin-bottom: 20px;
+        width: 230px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 30px;
+        object-fit: cover;
+        
+    }
+
+    select{
+        margin-top: 20px;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        cursor: pointer;
+        margin-bottom: -15px;
+    }
+    button{
+        margin-top: 10px;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        cursor: pointer;
+        border:none;
+        border-radius: 30px;
+        margin-bottom: -15px;
+        font-size: 10px;
+        font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter",sans-serif;
+    }
 }
