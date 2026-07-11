@@ -89,4 +89,85 @@ input{
     gap:16px;
 }
 
+/*Mensaje de error estilos*/
+
+.notification {
+    color: rgba(0,0,0,.7);
+    position: fixed;
+    display: flex;
+    font-size: .6rem;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    gap: 1.3rem;
+    top: 0;
+    right: 0;
+    margin: var(--notification-inset);
+    width: 24rem;
+    background: white;
+    box-shadow: 0 0 .5rem rgba(0,0,0,.25);
+    border-radius: .5rem;
+    max-width: calc(100% - 6rem);
+    z-index: 2;
+    padding: 1.3rem 1.25rem 1.25rem;
+    overflow: hidden;
+    transform: translateX(calc(100% + var(--notification-inset)));
+    animation: slideInOut 4s forwards;
+}
+
+.notification:hover {
+    --animation-play-state: paused;
+}
+
+.notification::before {
+    content: "";
+    display: block;
+    inset: 0 0 auto;
+    height: .5rem;
+    background: rgb(255,83,30);
+    transform-origin: left;
+    position: absolute;
+    animation: countdown 4s linear forwards;
+}
+
+.notification__text {
+    margin: .3rem 0 0;
+}
+
+.notification__header {
+    color: black;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.notification__action {
+    margin-left: auto;
+}
+
+.notification__icon {
+    border-radius: 50%;
+    display: block;
+    aspect-ratio: 1;
+    background-size: 3rem;
+    background-color: var(--accent-900);
+    background-image: var(--check-svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 3.2rem;
+    flex-shrink: 0;
+}
+
+@keyframes slideInOut {
+	15%,
+	66% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes countdown {
+	66%,
+	100% {
+		transform: scaleX(0);
+	}
+}
 
