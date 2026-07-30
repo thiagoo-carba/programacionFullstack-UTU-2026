@@ -207,11 +207,6 @@
     }
 
 
-
-    echo "\n"; 
-    echo "Bloque 4, Ejercicio 3\n";
-
-
     echo "\n"; 
     echo "Bloque 4, Ejercicio 4\n";
 
@@ -252,10 +247,405 @@
     } else {
         echo "Acceso denegado.\n";
     }
+    
+
+    echo "\n"; 
+    echo "Bloque 5, Ejercicio 3\n";
+
+    $stock1 = 253;
+    $pedido = 23;
+    $precio = 2000;
+    $presupuesto = 2100;
+
+    $procedeacompra = true;
+
+    if ($stock1 >= $pedido) {
+        $procedeacompra = true;
+        echo "Stock disponible, calculando presupuesto...\n";
+    } else {
+        $procedeacompra = false;
+        echo "No alcanza el stock.\n";
+    }
+
+    if ($procedeacompra) {
+
+        if ($presupuesto >= $precio) {
+            echo "La compra puede realizarse.\n";
+        } else {
+            echo "El presupuesto no alcanza para realizar la compra.\n";
+        }
+
+    }
 
 
 
+    echo "\n"; 
+    echo "Bloque 5, Ejercicio 4\n";
+
+    $tieneboleto = true;
+    $adultez = 18;
+    $edad = 17;
+    $acompañante = true;
+
+
+    if ($edad >= $adultez && $tieneboleto){
+        echo"Mayor de 18 y tiene entrada \n";
+    }elseif ($edad < $adultez && $acompañante){
+        echo "Menor que 18 pero tiene acompañante \n";
+    }else  echo"no puede ingresar \n";
+
+
+    echo "\n"; 
+    echo "Bloque 6, Ejercicio 1\n";
+
+    $edad = 11;
+    $precioentrada = 100;
+
+    if ($edad < 12){
+        echo"precio a pagar: ". "$". ($precioentrada * 0.5)."\n";
+    }else {
+        echo "precio a pagar: " . $precioentrada . "\n";
+    }
+
+    echo "\n"; 
+    echo "Bloque 6, Ejercicio 2\n";
+
+    $preciouni = 138;
+    $cantidadcomp = 35;
+    $subtotal = $preciouni * $cantidadcomp;
+    $total = $subtotal * 0.9;
+    $descuento = $subtotal - $total;
+
+    if ($cantidadcomp >= 5) {
+        echo "Subtotal: $" . $subtotal . "\n";
+        echo "Descuento: $" . $descuento . "\n";
+        echo "Total: $" . $total . "\n";
+    } else{
+        echo "Total: $" . $subtotal . "\n";
+    }
+
+
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 6, Ejercicio 3\n";
+
+    $totalCompra = 3500;
+
+    if ($totalCompra < 1000) {
+        $descuento = 0;
+    } elseif ($totalCompra >= 1000 && $totalCompra < 5000) {
+        $descuento = $totalCompra * 0.10;
+    } else {
+        $descuento = $totalCompra * 0.20;
+    }
+
+    $totalFinal = $totalCompra - $descuento;
+
+    echo "Total original: $" . $totalCompra . "\n";
+    echo "Descuento: $" . $descuento . "\n";
+    echo "Total final: $" . $totalFinal . "\n";
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 6, Ejercicio 4\n";
+
+    $producto = "Teclado";
+    $precio = 250;
+    $stock = 20;
+    $cantidadSolicitada = 12;
+
+    if ($cantidadSolicitada <= $stock) {
+
+        $subtotal = $precio * $cantidadSolicitada;
+
+        if ($cantidadSolicitada >= 10) {
+            $descuento = $subtotal * 0.15;
+        } else {
+            $descuento = 0;
+        }
+
+        $total = $subtotal - $descuento;
+
+        echo "Producto: " . $producto . "\n";
+        echo "Subtotal: $" . $subtotal . "\n";
+        echo "Descuento: $" . $descuento . "\n";
+        echo "Total: $" . $total . "\n";
+
+    } else {
+        echo "Error: no hay suficiente stock.\n";
+    }
+
+
+
+    echo "\n";
+    echo "Bloque 7, Ejercicio 1\n";
+
+    for ($i = 1; $i <= 10; $i++) {
+        echo $i . "\n";
+    }
+
+
+
+
+    echo "\n";
+    echo "Bloque 7, Ejercicio 2\n";
+
+    for ($i = 10; $i >= 1; $i--) {
+        echo $i . "\n";
+        if($i == 10){
+            echo "Comenzemos!";
+        }
+    }
+    
+    echo "\n";
+    echo "Bloque 7, Ejercicio 3\n";
+
+    for ($i = 1; $i <= 20; $i++) {
+
+        if($i % 2 === 0){
+            echo $i . "\n";
+        }
+        
+    }
+
+
+
+    echo "\n";
+    echo "Bloque 7, Ejercicio 4\n";
+
+    $tabla = 5;
+
+    for ($i = 1; $i <= 10; $i++) {
+        echo $tabla . " X " . $i  . " = " . ($tabla * $i) . "\n";
+    }
+    
+
+    echo "\n";
+    echo "Bloque 8, Ejercicio 1\n";
+    
+    $num = 0;
+
+    for ($i = 1; $i <= 10; $i++) {
+        $num += $i;
+        
+    }
+    echo"resultado: " . $num . "\n";
+
+
+
+    echo "\n";
+    echo "Bloque 8, Ejercicio 2\n";
+
+    $num1 = 0;
+
+    for ($i = 1; $i <= 100; $i++) {
+        $num1 += $i;
+        
+    }
+    echo"resultado: " . $num1 . "\n";
+
+
+
+    echo "\n";
+    echo "Bloque 8, Ejercicio 3 ". "\n";
+
+    $num3 = 0;
+
+    for ($i = 1; $i <= 50; $i++) {
+
+        if($i % 2 === 0){
+            $num3++;        
+        }
+  
+    }
+
+    echo $num3 . "total". "\n";
+
+
+
+
+    echo "\n";
+    echo "Bloque 8, Ejercicio 4 ". "\n";
+
+    $num4 = 0;
+
+    for ($i = 1; $i <= 100; $i++) {
+
+        if($i % 3 === 0){
+            $num4+= $i;        
+        }
+  
+    }
+
+    echo $num4 . "total". "\n";
+
+
+
+    echo "\n";
+    echo "Bloque 9, Ejercicio 1 ". "\n";
+
+
+    $i = 0;
+    while ($i<10){
+        $i++;
+        echo $i . "\n";
+    }
+
+    echo "\n";
+    echo "Bloque 9, Ejercicio 2 ". "\n";
+
+    $i = 2;
+    while ($i<=20){
+
+    if($i % 2 === 0){
+        echo $i . "\n";
+    }
+        $i++;
+        
+    }
+
+
+    echo "\n";
+    echo "Bloque 9, Ejercicio 3 ". "\n";
+
+    $i = 1;
+
+    while ($i<100){
+        echo $i . " \n";
+        $i*=2;
+        
+    }
+
+
+
+    echo "\n";
+    echo "Bloque 9, Ejercicio 4 ". "\n";
+
+    $ahorros=0;
+    $meses=0;
+    while ($ahorros < 5000){
+    $meses++;
+    echo "Mes " . $meses . "\n";
+    $ahorros += 500;
+    echo "Ahorros: ".$ahorros."\n";
+
+    }
+
+    echo "\n";
+    echo "Bloque 10, Ejercicio 1 ". "\n";
+
+    function saludar(){
+        echo "Bienvenido al sistema \n";
+    };
+
+    saludar();
+    saludar();
+
+
+    echo "\n";
+    echo "Bloque 10, Ejercicio 2 ". "\n";
+
+
+    function saludarUsuario($nombre){
+        echo "Hola, " . $nombre . "\n";
+    }
+
+
+    saludarUsuario("Thiago");
+    saludarUsuario("Lucas");
+    
+
+
+    echo "\n";
+    echo "Bloque 10, Ejercicio 3 ". "\n";
+
+    $Total=0;
+    function Sumar($num1, $num2){
+        $Total = ($num1 + $num2);
+        echo $Total . "\n";
+    }
+    Sumar(1837, 7320);
+
+
+
+    echo "\n";
+    echo "Bloque 10, Ejercicio 4 ". "\n";
+
+    $Total = 0;
+    function calcularTotal($precio, $cantidad){
+
+        $Total = ($precio * $cantidad); 
+        echo"Total: ".$Total . "\n";  
+    }
+
+    calcularTotal(2987, 79982);
 
 
     
+    echo "\n";
+    echo "Bloque 11, Ejercicio 1 ". "\n";
+
+
+    function esMayorDeEdad($edad){
+         if ($edad >= 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    var_dump(esMayorDeEdad(20));
+    var_dump(esMayorDeEdad(15));
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 11, Ejercicio 2 ". "\n";
+    
+    function esPar($numero){
+        if ($numero % 2 === 0){
+            return true;
+        }else{ return false ;}
+    }
+
+    var_dump(esPar(35));
+    var_dump(esPar(20));
+
+
+
+    echo "\n";
+    echo "Bloque 11, Ejercicio 3 ". "\n";
+
+    function aplicarDescuento($precio, $porcentaje){
+        $descuento = ($porcentaje / 100); 
+        $precioFinal = $precio - ($precio * $descuento);
+        echo"Total:" . $precioFinal . "\n";
+    }
+
+    aplicarDescuento(1000, 50);
+    
+
+
+    echo "\n";
+    echo "Bloque 11, Ejercicio 4 ". "\n";
+
+    function calcularPromedio($not1, $not2, $not3){
+        $promedio = (($not1 + $not2 + $not3 ) / 3);
+        echo "Promedio: " . $promedio;  
+    }
+
+    //terminar 
+
+
+
+
 ?> 
