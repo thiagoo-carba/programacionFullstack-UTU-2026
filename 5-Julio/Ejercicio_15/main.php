@@ -638,12 +638,132 @@
     echo "\n";
     echo "Bloque 11, Ejercicio 4 ". "\n";
 
-    function calcularPromedio($not1, $not2, $not3){
-        $promedio = (($not1 + $not2 + $not3 ) / 3);
-        echo "Promedio: " . $promedio;  
+    function Aprueba($promedio){
+        if($promedio >= 5 ){
+            echo "Aprobado\n";
+        }else echo"No Aprobado\n";
     }
 
-    //terminar 
+    function calcularPromedio($not1, $not2, $not3){
+        $promedio = (($not1 + $not2 + $not3 ) / 3);
+        echo "Promedio: " . $promedio . "\n";  
+        Aprueba($promedio);
+    }
+    calcularPromedio(2,4,8);
+
+
+
+
+    echo "\n";
+    echo "Bloque 12, Ejercicio 1 ". "\n";
+
+    $Nombres = ["Thiago", "Luca", "Ariana", "Nicolas", "Matias"];
+
+    echo $Nombres[0]. "\n";
+    echo $Nombres[1]. "\n";
+    echo $Nombres[2]. "\n";
+    echo $Nombres[3]. "\n";
+    echo $Nombres[4] . "\n";
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 12, Ejercicio 2 \n";
+
+    for ($i = 0; $i < count($Nombres); $i++) {
+        echo $Nombres[$i]. "\n";
+    }
+
+    foreach($Nombres as $i){
+        echo $i . "\n";
+    }
+
+
+
+    echo "\n";
+    echo "Bloque 12, Ejercicio 3 \n";
+
+
+    $Precios = [9812,390270,837290,98237,9723];
+
+    foreach($Precios as $i){
+        echo "$".$i . "\n";
+    }
+    echo "Precios: ".count($Precios). "\n";
+
+
+
+
+    echo "\n";
+    echo "Bloque 12, Ejercicio 4 \n";
+
+    $contador =0;
+    for ($i = 0; $i < count($Precios); $i++) {
+        $contador += $Precios[$i];
+    }
+
+    echo $contador . "\n";
+
+    echo array_sum($Precios) . "\n";
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 13, Ejercicio 1 \n";
+
+
+    $Numeros1 = [1,2,3,4,5,6,7,8,9];
+
+    foreach($Numeros1 as $i){
+        
+        if($i % 2 == 0){
+            echo $i. "\n";
+        }
+    }
+
+
+    echo "\n";
+    echo "Bloque 13, Ejercicio 2 \n";
+
+
+    foreach($Numeros1 as $i){
+        
+        if($i >= 5){
+            echo "Aprovado \n";
+        }else echo "No Aprobado \n";
+    }
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 13, Ejercicio 3 \n";
+
+
+    $nombres = ["Ana", "Juan", "Pedro", "María", "Luis"];
+
+    $buscar = "Pedro";
+
+    $encontrado = false;
+
+    foreach ($nombres as $nombre) {
+        if ($nombre == $buscar) {
+            $encontrado = true;
+            break;
+        }
+    }
+
+    if ($encontrado) {
+        echo "El nombre fue encontrado";
+    } else {
+        echo "El nombre no existe";
+    }
+
 
 
 
