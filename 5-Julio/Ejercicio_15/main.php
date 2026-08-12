@@ -764,8 +764,793 @@
         echo "El nombre no existe";
     }
 
+    echo "\n";
+    echo "Bloque 13, Ejercicio 4 \n";
+
+    $valores = [10, 20, 30, 40, 50];
+    $mayor = 0;
+
+
+    foreach ($valores as $valor) {
+        if ($valor > $mayor) {
+            $mayor = $valor;
+        }
+    }
+
+    echo "El valor mayor es: " . $mayor . "\n";
+
+
+    echo "\n";
+    echo "Bloque 14, Ejercicio 1 \n";
+
+    $suma =0;
+    $cantidad = 0;
+    $promedio = 0;
+    
+    foreach ($valores as $valor){
+        $cantidad++;
+        $suma += $valor;
+        $promedio = $suma / $cantidad;
+    }
+
+    echo "Cantidad: ". $cantidad . "\n";
+    echo "Total: ". $suma . "\n";
+    echo "Promedio: ". $promedio . "\n";
+
+
+
+    echo "\n";
+    echo "Bloque 14, Ejercicio 2 \n";
+
+    echo "Es lo mismo del bloque 13 ejercicio 2 \n";
 
 
 
 
-?> 
+    echo "\n";
+    echo "Bloque 14, Ejercicio 3 \n";
+
+    $promedio = 0;
+    $suma =0;
+    $cantidad = 0;
+    $aprobados = 0;
+    $desaprobados = 0;
+
+    foreach ($Numeros1 as $notas){
+        $cantidad++;
+        echo $notas ."\n";
+
+        $suma += $notas;
+        $promedio = $suma / $cantidad;
+        
+        if($notas >= 5){
+            $aprobados++;
+        }else $desaprobados++;
+
+    }
+
+    echo "Aprobados: ".$aprobados . "\n";
+    echo "Desaprobados: ".$desaprobados. "\n";
+    echo "Promedio: " . $promedio . "\n";
+
+    echo "\n";
+    echo "Bloque 14, Ejercicio 4 \n";
+
+    $promedio = 0;
+    $suma =0;
+    $cantidad = 0;
+    $aprobados = 0;
+    $desaprobados = 0;
+    $mayor = 0;
+    $menor = 2;
+
+    $Numeros2 = [12, 7, 19, 4, 15, 8, 20, 3, 11, 6, 18, 9, 14, 2, 17];
+
+    foreach($Numeros2 as $valores1){
+        
+        $cantidad++;
+        echo "Numero: ". $valores1 . "\n";
+
+        $suma += $valores1;
+
+        $promedio = $suma / $cantidad;
+
+        if($valores1 > $mayor){
+            $mayor = $valores1;
+        }
+
+        if ($valores1 < $menor) {
+            $menor = $valores1;
+        }
+    }
+
+    echo "Cantidad: ". $cantidad . "\n";
+    echo "Total: ". $suma . "\n";
+    echo "Promedio: ". $promedio . "\n";
+    echo "Mayor: " . $mayor . "\n";
+    echo "Menor: " . $menor . "\n";
+
+
+
+    echo "\n";
+    echo "Bloque 15, Ejercicio 1 \n";
+
+    $persona = [
+        "nombre" => "Juan",
+        "edad" => 25,
+        "ciudad" => "Montevideo"
+    ];
+
+
+    echo "Me llamo ".$persona["nombre"]. ", tengo " . $persona["edad"]. ", y vivo en ". $persona["ciudad"]. "\n" ;
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 15, Ejercicio 2 \n";
+
+
+    $producto = [
+        "nombre" => "Teclado",
+        "precio" => 1200,
+        "stock" => 5
+    ];
+
+    echo "Producto: " . $producto["nombre"] . "\n";
+    echo "Precio: $" . $producto["precio"] . "\n";
+    echo "Stock: " . $producto["stock"]. "\n";
+
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 15, Ejercicio 3 \n";
+
+
+    $producto = [
+        "nombre" => "Teclado",
+        "precio" => 1200,
+        "stock" => 5
+    ];
+
+    $producto["precio"] = 2000;
+    $producto["stock"] = 2;
+
+    echo "Producto: " . $producto["nombre"] . "\n";
+    echo "Precio: $" . $producto["precio"] . "\n";
+    echo "Stock: " . $producto["stock"]. "\n";
+
+
+
+    
+    echo "\n";
+    echo "Bloque 15, Ejercicio 4 \n";
+
+
+    $producto = [
+        "nombre" => "Teclado",
+        "precio" => 1200,
+        "stock" => 5
+    ];
+
+    $cantidadSolicitada = 3;
+
+    if ($cantidadSolicitada <= $producto["stock"]) {
+
+        $total = $producto["precio"] * $cantidadSolicitada;
+        $producto["stock"] -= $cantidadSolicitada;
+
+        echo "VENTA REALIZADA\n";
+        echo "Producto: " . $producto["nombre"] . "\n";
+        echo "Precio unitario: $" . $producto["precio"] . "\n";
+        echo "Cantidad: " . $cantidadSolicitada . "\n";
+        echo "Total: $" . $total . "\n";
+        echo "Stock restante: " . $producto["stock"] . "\n";
+
+    } else {
+
+        echo "ERROR: No hay suficiente stock.\n";
+    }
+
+
+
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 16, Ejercicio 1 \n";
+
+    $productos = [
+        [
+            "nombre" => "Teclado",
+            "precio" => 1200
+        ],
+        [
+            "nombre" => "Mouse",
+            "precio" => 800
+        ],
+        [
+            "nombre" => "Monitor",
+            "precio" => 15000
+        ]
+    ];
+
+    foreach ($productos as $producto) {
+        echo "Producto: " . $producto["nombre"] . "\n";
+        echo "Precio: $" . $producto["precio"] . "\n";
+        echo "-------------------\n";
+    }
+    
+
+
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 16, Ejercicio 2 \n";
+
+    $productos = [
+        [
+            "nombre" => "Teclado",
+            "precio" => 1200,
+            "stock" => 5
+        ],
+        [
+            "nombre" => "Mouse",
+            "precio" => 800,
+            "stock" => 0
+        ],
+        [
+            "nombre" => "Monitor",
+            "precio" => 15000,
+            "stock" => 3
+        ]
+    ];
+
+    foreach ($productos as $producto) {
+        if ($producto["stock"] > 0) {
+            echo "Producto: " . $producto["nombre"] . "\n";
+            echo "Precio: $" . $producto["precio"] . "\n";
+            echo "Stock: " . $producto["stock"] . "\n";
+            echo "-------------------\n";
+        }
+    }
+
+
+    echo "\n";
+    echo "Bloque 16, Ejercicio 3 \n";
+
+    foreach ($productos as $producto) {
+        if ($producto["precio"] > 1000) {
+            echo "Producto: " . $producto["nombre"] . "\n";
+            echo "Precio: $" . $producto["precio"] . "\n";
+            echo "Stock: " . $producto["stock"] . "\n";
+            echo "-------------------\n";
+        }
+    }
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 16, Ejercicio 4 \n";
+    $total = 0;
+    $totalxprod = 0;
+
+    foreach ($productos as $producto) {
+        
+        $totalxprod = ($producto["precio"] * $producto["stock"]);
+        $total += $totalxprod;
+
+        echo "Producto: " . $producto["nombre"] . "\n";
+        echo "Valor del stock: $" . $totalxprod . "\n";
+        echo "-------------------\n";
+    }
+
+    echo "TOTAL: $". $total ."\n";
+
+
+
+    echo "\n";
+    echo "Bloque 17, Ejercicio 1 \n";
+
+
+    $buscado = "Mouse";
+
+    foreach ($productos as $producto) {
+        if ($producto["nombre"] == $buscado) {
+            echo "Producto: " . $producto["nombre"] . "\n";
+            echo "Precio: $" . $producto["precio"] . "\n";
+            echo "Stock: " . $producto["stock"] . "\n";
+        }
+    }
+
+    echo "\n";
+    echo "Bloque 17, Ejercicio 2 \n";
+
+    $productos = [
+        [
+            "id" => 1,
+            "nombre" => "Teclado",
+            "precio" => 1200,
+            "stock" => 5
+        ],
+        [
+            "id" => 2,
+            "nombre" => "Mouse",
+            "precio" => 800,
+            "stock" => 10
+        ],
+        [
+            "id" => 3,
+            "nombre" => "Monitor",
+            "precio" => 15000,
+            "stock" => 3
+        ]
+    ];
+
+    $buscado = 3;
+
+    foreach ($productos as $producto) {
+        if ($producto["id"] == $buscado) {
+            echo "Producto: " . $producto["nombre"] . "\n";
+            echo "Precio: $" . $producto["precio"] . "\n";
+            echo "Stock: " . $producto["stock"] . "\n";
+        }
+    }
+
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 17, Ejercicio 3 \n";
+
+    $mayor = $productos[0];
+
+    foreach ($productos as $producto) {
+        if ($producto["precio"] > $mayor["precio"]) {
+            $mayor = $producto;
+        }
+    }
+
+    echo "Producto más caro: " . $mayor["nombre"] . "\n";
+    echo "Precio: $" . $mayor["precio"] . "\n";
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 17, Ejercicio 4 \n";
+
+    $buscado = 2;
+    $encontrado = false;
+
+    foreach ($productos as $producto) {
+        if ($producto["id"] == $buscado) {
+            echo "ID: " . $producto["id"] . "\n";
+            echo "Nombre: " . $producto["nombre"] . "\n";
+            echo "Precio: $" . $producto["precio"] . "\n";
+            echo "Stock: " . $producto["stock"] . "\n";
+
+            $encontrado = true;
+        }
+    }
+
+    if ($encontrado == false) {
+        echo "Producto no encontrado\n";
+    }
+
+
+
+    echo "\n";
+    echo "Bloque 18, Ejercicio 1 \n";
+
+    
+
+    function sumarNumeros($array){
+        $suma = 0; 
+        foreach($array as $numero){
+            $suma += $numero;
+        }
+        echo "Suma: " .$suma ."\n";
+    }
+
+    sumarNumeros($Numeros2);
+
+
+
+
+    echo "\n";
+    echo "Bloque 18, Ejercicio 2 \n";
+
+    $notas = [4, 6, 8, 5, 10];
+
+    function contarAprobados($notas) {
+        $aprobados = 0;
+
+        foreach ($notas as $nota) {
+            if ($nota >= 6) {
+                $aprobados++;
+            }
+        }
+
+        return $aprobados;
+    }
+
+    echo "Aprobados: " . contarAprobados($notas) . "\n";
+
+    echo "\n";
+    echo "Bloque 18, Ejercicio 3 \n";
+
+
+    function buscarProductoPorId($productos, $id){
+
+        foreach($productos as $producto){
+            if ($producto["id"] == $id) {
+                echo "ID: " . $producto["id"] . "\n";
+                echo "Nombre: " . $producto["nombre"] . "\n";
+                echo "Precio: $" . $producto["precio"] . "\n";
+                echo "Stock: " . $producto["stock"] . "\n";
+            }
+        }
+
+    }
+    
+
+    buscarProductoPorId($productos, 2);
+
+
+
+    echo "\n";
+    echo "Bloque 18, Ejercicio 4 \n";
+
+    function obtenerProductosConStock($productos) {
+        $disponibles = [];
+
+        foreach ($productos as $producto) {
+            if ($producto["stock"] > 0) {
+                $disponibles[] = $producto;
+            }
+        }
+
+        return $disponibles;
+    }
+
+    $disponibles = obtenerProductosConStock($productos);
+
+    foreach ($disponibles as $producto) {
+        echo "Producto: " . $producto["nombre"] . "\n";
+        echo "Precio: $" . $producto["precio"] . "\n";
+        echo "Stock: " . $producto["stock"] . "\n";
+        echo "-------------------\n";
+    }
+
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 19, Ejercicio 1 \n";
+
+
+  
+
+    $notas = [4, 7, 8, 5, 10, 6];
+
+    function mostrarNotas($notas) {
+        foreach ($notas as $nota) {
+            echo "Nota: " . $nota . "\n";
+        }
+    }
+
+    function calcularPromedio1($notas) {
+        $suma = 0;
+
+        foreach ($notas as $nota) {
+            $suma += $nota;
+        }
+
+        return $suma / count($notas);
+    }
+
+    function notaMasAlta($notas) {
+        $mayor = $notas[0];
+
+        foreach ($notas as $nota) {
+            if ($nota > $mayor) {
+                $mayor = $nota;
+            }
+        }
+
+        return $mayor;
+    }
+
+    function notaMasBaja($notas) {
+        $menor = $notas[0];
+
+        foreach ($notas as $nota) {
+            if ($nota < $menor) {
+                $menor = $nota;
+            }
+        }
+
+        return $menor;
+    }
+
+    function contarAprobados1($notas) {
+        $aprobados = 0;
+
+        foreach ($notas as $nota) {
+            if ($nota >= 6) {
+                $aprobados++;
+            }
+        }
+
+        return $aprobados;
+    }
+    function contarDesaprobados($notas) {
+        $desaprobados = 0;
+
+        foreach ($notas as $nota) {
+            if ($nota < 6) {
+                $desaprobados++;
+            }
+        }
+
+        return $desaprobados;
+    }
+
+
+    echo "NOTAS\n";
+    mostrarNotas($notas);
+
+    echo "\n";
+    echo "Promedio: " . calcularPromedio1($notas) . "\n";
+    echo "Nota más alta: " . notaMasAlta($notas) . "\n";
+    echo "Nota más baja: " . notaMasBaja($notas) . "\n";
+    echo "Aprobados: " . contarAprobados1($notas) . "\n";
+    echo "Desaprobados: " . contarDesaprobados($notas) . "\n";
+
+
+    echo "\n";
+    echo "Bloque 19, Ejercicio 2 \n";
+
+    $inventario = [
+        [
+            "id" => 1,
+            "nombre" => "Cámara",
+            "precio" => 25000,
+            "stock" => 4,
+            "categoria" => "Fotografía"
+        ],
+        [
+            "id" => 2,
+            "nombre" => "Tablet",
+            "precio" => 18000,
+            "stock" => 0,
+            "categoria" => "Tecnología"
+        ],
+        [
+            "id" => 3,
+            "nombre" => "Impresora",
+            "precio" => 22000,
+            "stock" => 3,
+            "categoria" => "Oficina"
+        ],
+        [
+            "id" => 4,
+            "nombre" => "Disco externo",
+            "precio" => 12000,
+            "stock" => 7,
+            "categoria" => "Almacenamiento"
+        ]
+    ];
+
+    echo "TODOS LOS PRODUCTOS\n";
+
+    foreach ($inventario as $producto) {
+        echo "ID: " . $producto["id"] . "\n";
+        echo "Nombre: " . $producto["nombre"] . "\n";
+        echo "Precio: $" . $producto["precio"] . "\n";
+        echo "Stock: " . $producto["stock"] . "\n";
+        echo "Categoría: " . $producto["categoria"] . "\n";
+        echo "-------------------\n";
+    }
+
+
+    echo "\nPRODUCTOS CON STOCK\n";
+
+    foreach ($inventario as $producto) {
+        if ($producto["stock"] > 0) {
+            echo "Producto: " . $producto["nombre"] . "\n";
+            echo "Stock: " . $producto["stock"] . "\n";
+        }
+    }
+
+    $buscado = 3;
+    $encontrado = false;
+
+    foreach ($inventario as $producto) {
+        if ($producto["id"] == $buscado) {
+            echo "\nPRODUCTO ENCONTRADO\n";
+            echo "Nombre: " . $producto["nombre"] . "\n";
+            echo "Precio: $" . $producto["precio"] . "\n";
+            echo "Stock: " . $producto["stock"] . "\n";
+            echo "Categoría: " . $producto["categoria"] . "\n";
+
+            $encontrado = true;
+        }
+    }
+
+    if ($encontrado == false) {
+        echo "\nProducto no encontrado\n";
+    }
+
+    $total = 0;
+
+    foreach ($inventario as $producto) {
+        $total += $producto["precio"] * $producto["stock"];
+    }
+
+    echo "\nVALOR TOTAL DEL INVENTARIO: $" . $total . "\n";
+
+    $mayor = $inventario[0];
+
+    foreach ($inventario as $producto) {
+        if ($producto["precio"] > $mayor["precio"]) {
+            $mayor = $producto;
+        }
+    }
+
+    echo "\nPRODUCTO MÁS CARO\n";
+    echo "Nombre: " . $mayor["nombre"] . "\n";
+    echo "Precio: $" . $mayor["precio"] . "\n";
+    
+
+
+
+
+
+    echo "\n";
+    echo "Bloque 19, Ejercicio 3 \n";
+
+
+    $usuarios = [
+        [
+            "id" => 1,
+            "nombre" => "Carlos Perez",
+            "usuario" => "carlos",
+            "contraseña" => "1234",
+            "rol" => "admin",
+            "activo" => true
+        ],
+        [
+            "id" => 2,
+            "nombre" => "Laura Gomez",
+            "usuario" => "laura",
+            "contraseña" => "5678",
+            "rol" => "empleado",
+            "activo" => true
+        ],
+        [
+            "id" => 3,
+            "nombre" => "Pedro Lopez",
+            "usuario" => "pedro",
+            "contraseña" => "abcd",
+            "rol" => "empleado",
+            "activo" => false
+        ]
+    ];
+
+    $usuarioBuscado = "laura";
+    $contraseñaIngresada = "5678";
+
+    $encontrado = false;
+
+    foreach ($usuarios as $usuario) {
+
+        if ($usuario["usuario"] == $usuarioBuscado) {
+
+            $encontrado = true;
+
+            if ($usuario["contraseña"] != $contraseñaIngresada) {
+                echo "Contraseña incorrecta\n";
+            } 
+            elseif ($usuario["activo"] == false) {
+                echo "El usuario está inactivo\n";
+            } 
+            else {
+
+                if ($usuario["rol"] == "admin") {
+                    echo "Bienvenido administrador " . $usuario["nombre"] . "\n";
+                } 
+                elseif ($usuario["rol"] == "empleado") {
+                    echo "Bienvenido empleado/a " . $usuario["nombre"] . "s\n";
+                }
+            }
+        }
+    }
+
+    if ($encontrado == false) {
+        echo "Usuario no encontrado\n";
+    }
+
+
+    echo "\n";
+    echo "Bloque 19, Ejercicio 3 \n";
+
+
+    $compras = [
+        [
+            "nombre" => "Auriculares",
+            "precio" => 4500,
+            "cantidad" => 2
+        ],
+        [
+            "nombre" => "Webcam",
+            "precio" => 6200,
+            "cantidad" => 1
+        ],
+        [
+            "nombre" => "Parlante",
+            "precio" => 7500,
+            "cantidad" => 3
+        ]
+    ];
+
+    $subtotal = 0;
+    $iva = 0.22;
+
+    foreach ($compras as $compra){
+        echo "Nombre: " . $compra["nombre"] . "\n";
+        echo "Precio: $" . $compra["precio"] . "\n";
+        echo "Cantidad: " . $compra["cantidad"] . "\n";
+        echo "-------------------\n";
+
+        $subtotal += $compra["precio"];
+    }
+    echo "\nSUBTOTAL\n";
+    echo"$" . $subtotal . "\n";
+
+
+    $valorIva = $subtotal * $iva;
+    $total = $subtotal + $valorIva;
+
+    echo "\nIVA (22%)\n";
+    echo "$" . $valorIva . "\n";
+
+    echo "\nTOTAL + IVA (22%)\n";
+    echo "$" . $total . "\n";
+
+    if ($total > 4000) {
+        $descuento = $total * 0.10;
+        $totalFinal = $total - $descuento;
+
+        echo "\nDESCUENTO (10%)\n";
+        echo "$" . $descuento . "\n";
+    } else {
+        $totalFinal = $total;
+    }
+
+    echo "\nTOTAL FINAL\n";
+    echo "$" . $totalFinal . "\n";
+
+
+
+
+
+?>
+
