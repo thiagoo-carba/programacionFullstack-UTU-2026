@@ -1,0 +1,374 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "SF Pro Text", "Inter", sans-serif;
+}
+
+body {
+    background-color: #0B0F1A;
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background-color: #111827;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #263247;
+    justify-content: center;
+}
+
+header .logo img {
+    width: 120px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.rgb-line {
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #ff0080,
+        #ff0000,
+        #ff7300,
+        #ffff00,
+        #00ff00,
+        #00ffff,
+        #008cff,
+        #5500ff,
+        #ff00ff
+    );
+
+    background-size: 300% 100%;
+
+    animation: rgbMove 4s linear infinite;
+
+    /* brillo RGB */
+    box-shadow:
+        0 0 5px rgba(255, 0, 80, 0.8),
+        0 0 10px rgba(0, 200, 255, 0.6),
+        0 0 15px rgba(140, 0, 255, 0.5);
+}
+
+@keyframes rgbMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
+}
+
+
+
+
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   AGREGAR JUEGO
+========================= */
+
+.add-game {
+    background-color: #111827;
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #263247;
+}
+
+.add-game h2 {
+    color: #06B6D4;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.add-game form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: #F8FAFC;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    background-color: #182033;
+    color: white;
+    border: 1px solid #263247;
+    padding: 12px;
+    border-radius: 6px;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #64748B;
+}
+
+.input-group input:focus {
+    border-color: #8B5CF6;
+}
+
+
+/* Botón agregar */
+
+.add-game form button {
+    width: 180px;
+    margin-top: 5px;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background-color: #8B5CF6;
+    color: white;
+
+    border: none;
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #A78BFA;
+}
+
+button .material-symbols-outlined {
+    font-size: 20px;
+}
+
+
+/* =========================
+   SECCIÓN JUEGOS
+========================= */
+
+.games {
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.games h2 {
+    color: #06B6D4;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+
+/* =========================
+   CONTENEDOR DE CARDS
+========================= */
+
+.games-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(260px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.game-card {
+    background-color: #182033;
+
+    border: 1px solid #263247;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: 0.2s;
+}
+
+.game-card:hover {
+    border-color: #8B5CF6;
+    transform: translateY(-4px);
+}
+
+
+/* Imagen */
+
+.game-card > img {
+    width: 100%;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 0;
+}
+
+
+/* =========================
+   INFORMACIÓN CARD
+========================= */
+
+.game-info {
+    padding: 20px;
+}
+
+.game-info h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.game-info p {
+    color: #94A3B8;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+/* Precio */
+
+.price {
+    display: block;
+
+    color: #22C55E;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   BOTONES CARD
+========================= */
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.card-buttons button {
+    flex: 1;
+}
+
+.card-buttons .delete {
+    background-color: #EF4444;
+}
+
+.card-buttons .delete:hover {
+    background-color: #F87171;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background-color: #111827;
+
+    border-top: 1px solid #263247;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+footer img {
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+
+    margin: 0 auto 10px;
+}
+
+footer p {
+    color: #64748B;
+    font-size: 14px;
+}
+
+
+/* =========================
+   MATERIAL ICONS
+========================= */
+
+.material-symbols-outlined {
+    vertical-align: middle;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+    main {
+        width: 92%;
+    }
+
+    .add-game {
+        padding: 20px;
+    }
+
+    .add-game form {
+        grid-template-columns: 1fr;
+    }
+
+    .add-game form button {
+        width: 100%;
+    }
+
+    .games-container {
+        grid-template-columns: 1fr;
+    }
+}
